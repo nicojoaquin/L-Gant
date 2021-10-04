@@ -6,4 +6,4 @@ import './scss/app.scss'
 
 const divRoot = document.querySelector('#root')
 
-ReactDOM.render(<CounterApp value = {10} />, divRoot)
+ReactDOM.render(<CounterApp value = {20} />, divRoot)
