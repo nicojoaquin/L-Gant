@@ -20,6 +20,9 @@
   width: 70px;
   height: 70px;
 }
+nav {
+  display: flex;
+}
 nav ul {
   display: flex;
   gap: 30px;
@@ -27,6 +30,12 @@ nav ul {
 nav ul li {
   list-style: none;
   display: flex;
+}
+.cart-widget {
+  display: flex;
+  position: absolute;
+  right: 5rem;
+  cursor: pointer;
 }
 .links {
   text-decoration: none;

@@ -13,7 +13,7 @@ const Header = ({title}) => {
         <img src= {logo} alt= "logo"/>
       </div>
 
-      <NavBar />
+      <NavBar />    
 
     </header>
 
