@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "./layout"
-import Header from "./components/header/header";
-import Main from "./components/main/main";
+import Layout from "./Layout"
+import Header from "./components/header/Header";
+import Main from "./components/main/Main";
 
 const App = () => {
 
