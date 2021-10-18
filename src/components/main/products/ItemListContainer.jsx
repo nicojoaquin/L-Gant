@@ -36,14 +36,15 @@ const ItemListContainer = () => {
 
   
   return (
-    <>
+    
+    <div className = "container">
 
-    <h2>Productos</h2>
-    <div className = "item-container">
-      <ItemList items= {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+      <h2 className= "productos">Productos</h2>
+      <div className = "item-container">
+        <ItemList items= {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+      </div>
+
     </div>
-
-    </>
   )
 }
 

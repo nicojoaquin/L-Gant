@@ -6,10 +6,12 @@ const Item = ({product}) => {
   return (
     <div className = "item">
       
-      <img className = "item__img" src = {process.env.PUBLIC_URL + product.img} alt= {product.name} />
-      <h3 className = "item__name" >{product.name}</h3>
-      <h4 className = "item__price" >${product.price}</h4>
-
+      <img onClick= { () => console.log(product) } className = "item__img" src = {process.env.PUBLIC_URL + product.img} alt= {product.name} />
+      <section className= "item__info">
+        <h3 className = "item__name" >{product.name}</h3>
+        <h4 className = "item__price" >${product.price}</h4>
+      </section>
+      
     </div>
   )
 }
