@@ -1,0 +1,126 @@
+.cssload-spin-box {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 51px;
+  height: 51px;
+  border-radius: 100%;
+  box-shadow: 51px 51px rgba(8, 8, 8, 0.99), -51px 51px rgb(92, 84, 92),
+    -51px -51px rgb(0, 0, 0), 51px -51px rgb(79, 77, 79);
+  -o-box-shadow: 51px 51px rgba(8, 8, 8, 0.99), -51px 51px rgb(92, 84, 92),
+    -51px -51px rgb(0, 0, 0), 51px -51px rgb(79, 77, 79);
+  -ms-box-shadow: 51px 51px rgba(8, 8, 8, 0.99), -51px 51px rgb(92, 84, 92),
+    -51px -51px rgb(0, 0, 0), 51px -51px rgb(79, 77, 79);
+  -webkit-box-shadow: 51px 51px rgba(8, 8, 8, 0.99), -51px 51px rgb(92, 84, 92),
+    -51px -51px rgb(0, 0, 0), 51px -51px rgb(79, 77, 79);
+  -moz-box-shadow: 51px 51px rgba(8, 8, 8, 0.99), -51px 51px rgb(92, 84, 92),
+    -51px -51px rgb(0, 0, 0), 51px -51px rgb(79, 77, 79);
+  animation: cssload-spin ease infinite 3.4s;
+  -o-animation: cssload-spin ease infinite 3.4s;
+  -ms-animation: cssload-spin ease infinite 3.4s;
+  -webkit-animation: cssload-spin ease infinite 3.4s;
+  -moz-animation: cssload-spin ease infinite 3.4s;
+}
+
+@keyframes cssload-spin {
+  0%,
+  100% {
+    box-shadow: 51px 51px rgb(0, 0, 0), -51px 51px rgb(102, 98, 102),
+      -51px -51px rgb(0, 0, 0), 51px -51px rgb(69, 68, 69);
+  }
+  25% {
+    box-shadow: -51px 51px rgb(79, 77, 79), -51px -51px rgb(0, 0, 0),
+      51px -51px rgb(97, 91, 97), 51px 51px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: -51px -51px rgb(0, 0, 0), 51px -51px rgb(107, 107, 107),
+      51px 51px rgb(0, 0, 0), -51px 51px rgb(99, 97, 99);
+  }
+  75% {
+    box-shadow: 51px -51px #dfdfdf, 51px 51px #4f4d49, -51px 51px #dfdfdf,
+      -51px -51px #4f4d49;
+  }
+}
+
+@-o-keyframes cssload-spin {
+  0%,
+  100% {
+    box-shadow: 51px 51px rgb(0, 0, 0), -51px 51px rgb(102, 98, 102),
+      -51px -51px rgb(0, 0, 0), 51px -51px rgb(69, 68, 69);
+  }
+  25% {
+    box-shadow: -51px 51px rgb(79, 77, 79), -51px -51px rgb(0, 0, 0),
+      51px -51px rgb(97, 91, 97), 51px 51px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: -51px -51px rgb(0, 0, 0), 51px -51px rgb(107, 107, 107),
+      51px 51px rgb(0, 0, 0), -51px 51px rgb(99, 97, 99);
+  }
+  75% {
+    box-shadow: 51px -51px #dfdfdf, 51px 51px #4f4d49, -51px 51px #dfdfdf,
+      -51px -51px #4f4d49;
+  }
+}
+
+@-ms-keyframes cssload-spin {
+  0%,
+  100% {
+    box-shadow: 51px 51px rgb(0, 0, 0), -51px 51px rgb(102, 98, 102),
+      -51px -51px rgb(0, 0, 0), 51px -51px rgb(69, 68, 69);
+  }
+  25% {
+    box-shadow: -51px 51px rgb(79, 77, 79), -51px -51px rgb(0, 0, 0),
+      51px -51px rgb(97, 91, 97), 51px 51px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: -51px -51px rgb(0, 0, 0), 51px -51px rgb(107, 107, 107),
+      51px 51px rgb(0, 0, 0), -51px 51px rgb(99, 97, 99);
+  }
+  75% {
+    box-shadow: 51px -51px #dfdfdf, 51px 51px #4f4d49, -51px 51px #dfdfdf,
+      -51px -51px #4f4d49;
+  }
+}
+
+@-webkit-keyframes cssload-spin {
+  0%,
+  100% {
+    box-shadow: 51px 51px rgb(0, 0, 0), -51px 51px rgb(102, 98, 102),
+      -51px -51px rgb(0, 0, 0), 51px -51px rgb(69, 68, 69);
+  }
+  25% {
+    box-shadow: -51px 51px rgb(79, 77, 79), -51px -51px rgb(0, 0, 0),
+      51px -51px rgb(97, 91, 97), 51px 51px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: -51px -51px rgb(0, 0, 0), 51px -51px rgb(107, 107, 107),
+      51px 51px rgb(0, 0, 0), -51px 51px rgb(99, 97, 99);
+  }
+  75% {
+    box-shadow: 51px -51px #dfdfdf, 51px 51px #4f4d49, -51px 51px #dfdfdf,
+      -51px -51px #4f4d49;
+  }
+}
+
+@-moz-keyframes cssload-spin {
+  0%,
+  100% {
+    box-shadow: 51px 51px rgb(0, 0, 0), -51px 51px rgb(102, 98, 102),
+      -51px -51px rgb(0, 0, 0), 51px -51px rgb(69, 68, 69);
+  }
+  25% {
+    box-shadow: -51px 51px rgb(79, 77, 79), -51px -51px rgb(0, 0, 0),
+      51px -51px rgb(97, 91, 97), 51px 51px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: -51px -51px rgb(0, 0, 0), 51px -51px rgb(107, 107, 107),
+      51px 51px rgb(0, 0, 0), -51px 51px rgb(99, 97, 99);
+  }
+  75% {
+    box-shadow: 51px -51px #dfdfdf, 51px 51px #4f4d49, -51px 51px #dfdfdf,
+      -51px -51px #4f4d49;
+  }
+}

@@ -42,7 +42,7 @@ const ItemListContainer = () => {
       <h2 className= "productos">Productos</h2>
       
       {
-        loading ? "Cargando..." : //Cuando termina de cargar, aparecen los productos.
+        loading ? <div class="cssload-spin-box"></div> : //Cuando termina de cargar, aparecen los productos.
         <div className = "item-container">
           <ItemList items= {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
         </div>
