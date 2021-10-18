@@ -1,16 +1,14 @@
 import React from 'react'
+import ItemListContainer from './products/ItemListContainer'
 
-const Main = ({text}) => {
+const Main = () => {
 
   return (
-
     <>
-    <div style={{marginTop: 120, display: "flex", justifyContent: "center"}}>
-     {text === undefined ? null : (
-     <h2 style={{color: "black"}}>{text}</h2>)}
-    </div>
+    <main className = "main">
+      <ItemListContainer />
+    </main>
     </>
-    
   )
 
 }

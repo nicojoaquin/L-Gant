@@ -6,11 +6,11 @@ import Main from "./components/main/Main";
 const App = () => {
 
   return (
-    
+    //Layout de toda la página.
     <Layout>
 
-      <Header title= "ALF-ARG" />
-      <Main text = "Contenido de la página" />
+      <Header title= "L-Gant" />
+      <Main />
       {/* <Footer /> */}
 
     </Layout> 

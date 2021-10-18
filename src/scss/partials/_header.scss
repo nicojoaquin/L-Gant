@@ -1,5 +1,5 @@
 .header {
-  background-color: black;
+  background-color: $colorPrincipal;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,6 +8,7 @@
   left: 0;
   width: 100%;
   height: 5rem;
+  box-shadow: $boxShadow;
 }
 .title {
   display: flex;
@@ -15,6 +16,8 @@
 }
 .title__h1 {
   font-size: 30px;
+  font-family: "Rampart One", cursive;
+  color: $colorLinks;
 }
 .title img {
   width: 70px;
@@ -30,6 +33,7 @@ nav ul {
 nav ul li {
   list-style: none;
   display: flex;
+  font-weight: 600;
 }
 .cart-widget {
   display: flex;
@@ -39,5 +43,5 @@ nav ul li {
 }
 .links {
   text-decoration: none;
-  color: white;
+  color: black;
 }

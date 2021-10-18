@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "./NavBar";
-import logo from "../../assets/logo.ico"
 
 const Header = ({title}) => {
 
@@ -10,7 +9,7 @@ const Header = ({title}) => {
 
       <div className = "title">
         <h1 className = "title__h1"> {title} </h1>
-        <img src= {logo} alt= "logo"/>
+        <img src= {process.env.PUBLIC_URL + "/assets/logo.ico"} alt= "logo"/>
       </div>
 
       <NavBar />    
