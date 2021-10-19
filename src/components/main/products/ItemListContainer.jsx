@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import products from '../../../data/db'
 import Finder from './Finder'
-// import useLoader from "../../../hooks/useLoader"
 import ItemList from "./Itemlist"
 
 
@@ -33,7 +32,7 @@ const ItemListContainer = () => {
       setTimeout( () => {
         setItems(result)
         setLoader(false)
-      }, 2000)
+      }, 1500)
     })
     .catch((err) => {
       console.error(err);
@@ -45,24 +44,23 @@ const ItemListContainer = () => {
     
     <div className = "container">
       <Finder products = {items} />
-      
-      {
-        loader ? <div className="cssload-spin-box"></div> : //Cuando termina de cargar, aparecen los productos.
-        <div style={{
-          display: "flex", flexDirection: "column", alignItems: "center", gap: 20
-          }}>
+
+      {loader ? <div className="cssload-spin-box"></div> : null } 
+
+        {/*Cuando termina de cargar, aparecen los productos.*/}
+        <div className = "item__container">
 
           <button style = {{
             cursor: "pointer"
             }} 
             onClick={ () => 
-              setItems([newProducto, ...products])}>Agregar
+              setItems([newProducto, ...products])}> Agregar
           </button>
 
           <ItemList products = {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
           
         </div>
-      } 
+       
 
   
     </div>
