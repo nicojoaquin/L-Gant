@@ -4,9 +4,13 @@ const Item = ({product}) => {
 
   //Dibujamos los productos con las props del item mapeado.
   return (
-    <div className = "item" onClick= { () => console.log(product) } >
-      
-      <img className = "item__img" src = {process.env.PUBLIC_URL + product.img} alt= {product.codeName} />
+    <div style = {{
+      backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
+      }} 
+      className = "item" onClick= { () =>
+        console.log(product) 
+      } >
+
       <section className= "item__info">
         <h3 className = "item__name" >{product.name}</h3>
         <h4 className = "item__price" >${product.price}</h4>

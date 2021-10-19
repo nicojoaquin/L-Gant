@@ -39,18 +39,26 @@ const ItemListContainer = () => {
       console.error(err);
     })
  
-  },[])
+  },[items])
 
   return (
     
     <div className = "container">
-      <h2 className= "productos">Productos</h2>
       <Finder products = {items} />
+      
       {
         loader ? <div className="cssload-spin-box"></div> : //Cuando termina de cargar, aparecen los productos.
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 20}}>
+        <div style={{
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 20
+          }}>
 
-          <button style={{cursor: "pointer"}} onClick={ () => setItems([newProducto, ...products])}>Agregar</button>
+          <button style = {{
+            cursor: "pointer"
+            }} 
+            onClick={ () => 
+              setItems([newProducto, ...products])}>Agregar
+          </button>
+
           <ItemList products = {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
           
         </div>

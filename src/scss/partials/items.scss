@@ -5,12 +5,10 @@
   gap: 50px;
 }
 .finder input {
-  width: 1110px;
   height: 40px;
   border-radius: 5px;
   border: 1px solid;
-  font-size: 20px;
-  text-align: center;
+  font-size: 18px;
 }
 .productos {
   width: 100%;
@@ -19,14 +17,14 @@
 .item-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 60px;
   max-width: 1200px;
 }
 .item {
+  position: relative;
   cursor: pointer;
   width: 350px;
   height: 500px;
-  background-color: $colorPrincipal;
   text-transform: capitalize;
   display: flex;
   flex-direction: column;
@@ -35,30 +33,35 @@
   margin-left: auto;
   border-radius: 5px;
   font-size: 15px;
-  box-shadow: $boxShadow;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .item:hover .item__info {
   background-color: $colorSecundario;
   color: $colorPrincipal;
 }
-.item__img {
-  width: 350px;
-  height: 450px;
-  object-fit: contain;
-}
 .item__info {
-  background-color: $colorPrincipal;
+  position: absolute;
+  bottom: -10%;
   width: 100%;
   padding: 5px;
-  border-radius: 0 0 5px 5px;
   transition: all 0.3s;
 }
 
 @media screen and (max-width: 1040px) {
   .item-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9%;
+    margin-right: 25px;
+  }
+  .item {
+    width: 150px;
+    height: 250px;
   }
   .item__info {
-    text-align: center;
+    font-size: 10px;
+    bottom: -15%;
+    height: 12%;
   }
 }
