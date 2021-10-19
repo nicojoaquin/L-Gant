@@ -17,7 +17,7 @@
 .title__h1 {
   font-size: 30px;
   font-family: "Rampart One", cursive;
-  color: $colorLinks;
+  color: $colorSecundario;
 }
 .title img {
   width: 70px;
@@ -38,10 +38,10 @@ nav ul li {
 .cart-widget {
   display: flex;
   position: absolute;
-  right: 5rem;
+  right: 8%;
   cursor: pointer;
 }
 .links {
   text-decoration: none;
-  color: black;
+  color: $colorSecundario;
 }

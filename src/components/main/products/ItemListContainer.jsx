@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import products from '../../../data/db'
+import Finder from './Finder'
 // import useLoader from "../../../hooks/useLoader"
 import ItemList from "./Itemlist"
 
@@ -8,6 +9,14 @@ const ItemListContainer = () => {
 
   const [items, setItems] = useState([])
   const [loader, setLoader] = useState(true)
+
+  const newProducto = {
+    id: 5,
+    codeName:"zapatoMarron",
+    name: "Zapatos marrones",
+    price: 16600, category: "zapatos",
+    img: "/assets/products/zapato_marron.jpg"
+  }
   
   useEffect( () => {
      
@@ -36,13 +45,17 @@ const ItemListContainer = () => {
     
     <div className = "container">
       <h2 className= "productos">Productos</h2>
-      
+      <Finder products = {items} />
       {
         loader ? <div className="cssload-spin-box"></div> : //Cuando termina de cargar, aparecen los productos.
-        <div className = "item-container">
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 20}}>
+
+          <button style={{cursor: "pointer"}} onClick={ () => setItems([newProducto, ...products])}>Agregar</button>
           <ItemList products = {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+          
         </div>
-      }
+      } 
+
   
     </div>
   )
