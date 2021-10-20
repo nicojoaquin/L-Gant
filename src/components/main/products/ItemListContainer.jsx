@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import products from '../../../data/db'
+import axios from 'axios'
 import Finder from './Finder'
 import ItemList from "./Itemlist"
 
 
 const ItemListContainer = () => {
 
-  const [items, setItems] = useState([])
+  const [items, setItems]   = useState([])
   const [loader, setLoader] = useState(true)
+  const [active, setActive] = useState(false)
 
   const newProducto = {
     id: 5,
@@ -20,24 +21,15 @@ const ItemListContainer = () => {
   useEffect( () => {
      
     //Creamos una promesa que carga los productos..
-    const getItems = new Promise((resolve, reject) => {
-
-      let ok = true
-      ok ? resolve(products) : 
-      reject("Algo ha salido mal")
-      
-    })
-  
-    getItems.then((result) => {
+    axios.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
+    .then(res => {    
       setTimeout( () => {
-        setItems(result)
+        setItems(res.data.products)
         setLoader(false)
       }, 1500)
     })
-    .catch((err) => {
-      console.error(err);
-    })
- 
+    .catch(err => console.error(err));
+
   },[])
 
   return (
@@ -53,8 +45,12 @@ const ItemListContainer = () => {
           <button style = {{
             cursor: "pointer"
             }} 
-            onClick={ () => 
-              setItems([newProducto, ...products])}> Agregar
+            disabled = {active}
+            onClick= { () => {
+              setItems([newProducto, ...items])
+              setActive(true)
+             }
+            }> Agregar          
           </button>
 
           <ItemList products = {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}

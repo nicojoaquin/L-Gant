@@ -4,7 +4,7 @@ const Finder = ({products}) => {
 
   return (
     <div className= "finder">
-      <input type="text" placeholder= "Buscar..." />
+      <input type="text" placeholder= " Buscar..." />
     </div>
   )
 
