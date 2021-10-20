@@ -10,6 +10,11 @@ const ItemListContainer = () => {
   const [loader, setLoader] = useState(true)
   const [active, setActive] = useState(false)
 
+  useEffect( () => {    
+    getItems()
+  },[])
+
+
   const newProducto = {
     id: 5,
     codeName:"zapatoMarron",
@@ -31,12 +36,6 @@ const ItemListContainer = () => {
     .catch(err => console.error(err));
 
   }
-
-  useEffect( () => {
-     
-    getItems()
-
-  },[])
 
   return (
     
