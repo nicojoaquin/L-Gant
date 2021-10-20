@@ -18,10 +18,10 @@ const ItemListContainer = () => {
     img: "/assets/products/zapato_marron.jpg"
   }
   
-  useEffect( () => {
-     
+  const getItems = async () => {    
+
     //Creamos una promesa que carga los productos..
-    axios.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
+    await axios.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
     .then(res => {    
       setTimeout( () => {
         setItems(res.data.products)
@@ -29,6 +29,12 @@ const ItemListContainer = () => {
       }, 1500)
     })
     .catch(err => console.error(err));
+
+  }
+
+  useEffect( () => {
+     
+    getItems()
 
   },[])
 

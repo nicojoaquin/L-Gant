@@ -42,16 +42,19 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  transition: 0.3s;
 }
 .item:hover .item__info {
   background-color: $colorSecundario;
   color: $colorPrincipal;
+  transition: 0.3s;
 }
 .item__info {
   position: absolute;
   bottom: -10%;
   width: 100%;
   padding: 5px;
+  border-radius: 0 0 5px 5px;
   transition: all 0.3s;
 }
 
