@@ -16,7 +16,11 @@ button {
   font-size: 1.3rem;
   margin-right: 10px;
   padding: 10px;
+  cursor: pointer;
 }
 .main {
   margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

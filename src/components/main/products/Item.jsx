@@ -4,6 +4,7 @@ const Item = ({product}) => {
 
   //Dibujamos los productos con las props del item mapeado.
   return (
+    
     <div style = {{
       backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
       }} 
@@ -17,6 +18,7 @@ const Item = ({product}) => {
       </section>
       
     </div>
+    
   )
 }
 

@@ -6,7 +6,7 @@ import ItemList from "./Itemlist"
 
 const ItemListContainer = () => {
 
-  const [items, setItems]   = useState([])
+  const [items,  setItems]  = useState([])
   const [loader, setLoader] = useState(true)
   const [active, setActive] = useState(false)
 
@@ -42,14 +42,10 @@ const ItemListContainer = () => {
     <div className = "container">
       <Finder products = {items} />
 
-      {loader ? <div className="cssload-spin-box"></div> : null } 
+      <div className = "item__container"> 
 
         {/*Cuando termina de cargar, aparecen los productos.*/}
-        <div className = "item__container">
-
-          <button style = {{
-            cursor: "pointer"
-            }} 
+          <button  
             disabled = {active}
             onClick= { () => {
               setItems([newProducto, ...items])
@@ -57,8 +53,12 @@ const ItemListContainer = () => {
              }
             }> Agregar          
           </button>
-
-          <ItemList products = {items} /> {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+          
+          {loader ? <div className="cssload-spin-box"></div> : 
+          <ItemList products = {items} /> 
+          }
+           
+          {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
           
         </div>
        

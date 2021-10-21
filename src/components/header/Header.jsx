@@ -1,5 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
+import CartWidget from './CartWidget';
+import Auth0 from "./auth0/Auth0";
 
 const Header = ({title}) => {
 
@@ -12,7 +14,11 @@ const Header = ({title}) => {
         <img src= {process.env.PUBLIC_URL + "/assets/logo.ico"} alt= "logo"/>
       </div>
 
-      <NavBar />    
+      <div className= "header__assets">
+        <NavBar />
+        <CartWidget />
+        <Auth0 />    
+      </div>
 
     </header>
 

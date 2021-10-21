@@ -1,7 +1,7 @@
 .header {
   background-color: $colorPrincipal;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
@@ -14,6 +14,7 @@
 .title {
   display: flex;
   align-items: center;
+  margin: 3rem;
 }
 .title__h1 {
   font-size: 30px;
@@ -23,6 +24,12 @@
 .title img {
   width: 70px;
   height: 70px;
+}
+.header__assets {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem;
 }
 nav {
   display: flex;
@@ -39,12 +46,9 @@ nav ul li {
 nav ul li:hover {
   text-decoration: underline;
 }
-.cart-widget {
-  display: flex;
-  position: absolute;
-  right: 8%;
-  cursor: pointer;
-}
+// .cart-widget {
+
+// }
 .links {
   text-decoration: none;
   color: $colorSecundario;
