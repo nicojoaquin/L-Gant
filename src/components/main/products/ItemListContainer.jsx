@@ -31,7 +31,7 @@ const ItemListContainer = () => {
       setTimeout( () => {
         setItems(res.data.products)
         setLoader(false)
-      }, 1500)
+      }, 1000)
     })
     .catch(err => console.error(err));
 
@@ -45,6 +45,7 @@ const ItemListContainer = () => {
       <div className = "item__container"> 
 
         {/*Cuando termina de cargar, aparecen los productos.*/}
+        {loader ? <div className="cssload-spin-box"></div> : 
           <button  
             disabled = {active}
             onClick= { () => {
@@ -53,12 +54,10 @@ const ItemListContainer = () => {
              }
             }> Agregar          
           </button>
+        }
           
-          {loader ? <div className="cssload-spin-box"></div> : 
-          <ItemList products = {items} /> 
-          }
-           
-          {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+        {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
+        <ItemList products = {items} />        
           
         </div>
        
