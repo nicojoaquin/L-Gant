@@ -37,7 +37,7 @@ const ItemListContainer = ({buttonText}) => {
       }, 1000)
     }
     catch(err) {
-      console.error(err);
+      console.warn(err);
     }  
 
   }
