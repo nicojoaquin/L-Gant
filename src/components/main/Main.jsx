@@ -6,7 +6,7 @@ const Main = () => {
   return (
 
     <main className = "main">
-      <ItemListContainer />
+      <ItemListContainer buttonText = 'Agregar' />
     </main>
     
   )
