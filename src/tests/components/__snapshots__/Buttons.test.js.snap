@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba en <Buttons /> debe mostrar el componente correctamente 1`] = `
+<div
+  className="buttons"
+>
+  <button
+    className="addButton"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Agregar producto
+  </button>
+  <button
+    className="changeColor"
+    onClick={[Function]}
+  >
+    Cambiar color
+  </button>
+</div>
+`;

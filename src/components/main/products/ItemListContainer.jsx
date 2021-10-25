@@ -1,33 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import productsApi from '../../../api/productsApi';
 import Finder from './Finder'
+import Buttons from './Buttons';
 import ItemList from "./Itemlist"
-import PropTypes from 'prop-types';
 
 
-const ItemListContainer = ({buttonText}) => {
+const ItemListContainer = () => {
 
   const [items,  setItems]  = useState([])
   const [loader, setLoader] = useState(true)
-  const [active, setActive] = useState(false)
 
   useEffect( () => {    
     getItems()
   },[])
 
-
-  const newProducto = {
-    id: 5,
-    codeName:"zapatoMarron",
-    name: "Zapatos marrones",
-    price: 16600, category: "zapatos",
-    img: "/assets/products/zapato_marron.jpg"
-  }
   
   const getItems = async () => {    
 
     //Creamos una promesa que carga los productos..
-    const res = await axios.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
+    const res = await productsApi.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
     const { data } = res;    
     
     try {
@@ -43,41 +34,33 @@ const ItemListContainer = ({buttonText}) => {
   }
 
   return (
-    
-    <div className = "container">
-      <Finder products = {items} />
 
-      <div className = "item__container"> 
-
-        {/*Cuando termina de cargar, aparecen los productos.*/}
-        {loader ? <div className="cssload-spin-box"></div> : null}
+    loader ?        
+        <svg 
+          className = "cssload-spin-box loader"
+          style = {{marginTop: 400}}>
+        </svg> :
         
-          <button className= 'button'  
-            disabled = {active}
-            onClick= { (e) => {
-              console.log(e.target);
-              setItems([newProducto, ...items])
-              setActive(true)
-             }
-            }>{buttonText}          
-          </button>
-          
-        {/* Le pasamos el estado de los productos ya cambiado(agregados). */}
-        <ItemList products = {items} />        
-          
-        </div>
-       
+    /*Cuando termina de cargar, aparecen los productos.*/
+    <div className = "container">
+           
+      <Finder products = {items} />
+      <Buttons 
+        buttonText = "Agregar producto" 
+        setItems = {setItems} 
+        items = {items} 
+      />
 
-  
+      <div className = "item__container">    
+      
+        <ItemList products = {items} />            
+
+      </div>
+    
     </div>
+
   )
 
 }
-
-
-ItemListContainer.propTypes = {
-  buttonText: PropTypes.string.isRequired
-};
-  
 
 export default ItemListContainer;

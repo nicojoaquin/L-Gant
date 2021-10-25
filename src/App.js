@@ -7,8 +7,13 @@ const App = () => {
 
   return (
     //Layout de toda la página.
-    <Layout>
-
+   
+    <Layout 
+      style = {{
+        display: "flex",
+        flexDirection: "column"
+      }}>
+          
       <Header title= "L-Gant" />
       <Main />
       {/* <Footer /> */}
