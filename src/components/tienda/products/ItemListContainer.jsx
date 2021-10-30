@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import productsApi from '../../../api/productsApi';
 import Finder from './Finder'
-import Buttons from './Buttons';
 import ItemList from "./Itemlist"
 
 
@@ -47,16 +46,8 @@ const ItemListContainer = () => {
     <div className = "container">
            
       <Finder products = {items} />
-      <Buttons 
-        buttonText = "Agregar producto" 
-        setItems = {setItems} 
-        items = {items} 
-      />
-
       <div className = "item__container">    
-      
-        <ItemList products = {items} />            
-
+        <ItemList products = {items} />           
       </div>
     
     </div>

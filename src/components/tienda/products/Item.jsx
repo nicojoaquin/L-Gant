@@ -5,7 +5,7 @@ const Item = ({product}) => (
   
   //Dibujamos los productos con las props del item mapeado.
   <Link 
-    exact to={`/tienda/${product.id}`}
+    to={`/tienda/${product.id}`}
     className = "item" 
     onClick= { () => console.log(product) }
     style = {{

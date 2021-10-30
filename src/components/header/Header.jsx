@@ -11,7 +11,7 @@ const Header = ({title}) => {
       <header className = "header">
 
         <div className = "title">
-          <Link exact to="/"><h1 className = "title__h1"> {title} </h1></Link>
+          <Link to="/"><h1 className = "title__h1"> {title} </h1></Link>
           <img src= {process.env.PUBLIC_URL + "/assets/logo.ico"} alt= "logo"/>
         </div>
 
