@@ -28,8 +28,8 @@ const Buttons = ({buttonText, setItems, items}) => {
           className = 'addButton' 
           ref = {addButton} 
           disabled = {disabled}
-          onClick = { (e) => addProduct()
-          }>{buttonText}          
+          onClick = { addProduct }
+          >{buttonText}          
         </button>
 
         <button

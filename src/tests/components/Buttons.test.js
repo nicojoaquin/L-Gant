@@ -7,7 +7,7 @@ describe('Prueba en <Buttons />', () => {
   
   const buttonText = 'Agregar producto';
   const setItems = () => {
-    "Funcion"
+    "funcion"
   };
   const items = [];
 

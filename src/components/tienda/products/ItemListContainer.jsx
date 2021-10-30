@@ -18,12 +18,14 @@ const ItemListContainer = () => {
   const getItems = async () => {    
 
     //Creamos una promesa que carga los productos..
-    const res = await productsApi.get(`${process.env.PUBLIC_URL + '/data/db.json'}`)
+    const res = await productsApi.get(`https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/`)
     const { data } = res;    
     
     try {
       setTimeout( () => {
         setItems(data)
+      }, 800)       
+      setTimeout( () => {
         setLoader(false)
       }, 1000)
     }

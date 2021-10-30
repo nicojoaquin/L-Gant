@@ -13,6 +13,7 @@ exports[`Prueba en <Buttons /> debe mostrar el componente correctamente 1`] = `
   </button>
   <button
     className="changeColor"
+    disabled={false}
     onClick={[Function]}
   >
     Cambiar color

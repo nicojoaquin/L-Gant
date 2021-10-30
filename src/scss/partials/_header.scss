@@ -33,22 +33,14 @@
 }
 nav {
   display: flex;
-}
-nav ul {
-  display: flex;
   gap: 30px;
-}
-nav ul li {
   list-style: none;
   display: flex;
   font-weight: 600;
 }
-nav ul li:hover {
+.links:hover {
   text-decoration: underline;
 }
-// .cart-widget {
-
-// }
 .links {
   text-decoration: none;
   color: $colorSecundario;

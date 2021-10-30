@@ -1,19 +1,12 @@
 import React from "react";
 import ReactDOM  from "react-dom";
+import { HashRouter } from 'react-router-dom';
 import App from "./App"
-import {Auth0Provider} from '@auth0/auth0-react'
 
 import './scss/app.scss'
 
-
-const domain = process.env.REACT_APP_AUTH0_DOMAIN,
-      clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
-
 ReactDOM.render(
-  <Auth0Provider 
-    domain={domain}
-    clientId={clientId} 
-    redirectUrl={window.location.origin}>
+  <HashRouter>
     <App />
-  </Auth0Provider>, document.querySelector('#root')
-);
+  </HashRouter>,
+   document.querySelector('#root'));
