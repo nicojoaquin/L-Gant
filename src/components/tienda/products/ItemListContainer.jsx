@@ -54,11 +54,8 @@ const ItemListContainer = () => {
     const data = await res.data;    
     
     try {
-      setTimeout( () => {
-        setItems(data.filter(dt => dt.category === catId)) 
-        setLoader(false)
-      }, 800)       
-
+      setItems(data.filter(dt => dt.category === catId)) 
+      setLoader(false)     
     }
     catch(err) {
       console.warn(err);
@@ -71,7 +68,7 @@ const ItemListContainer = () => {
     // })
   
   }
-  
+
   return (
 
     /*Cuando termina de cargar, aparecen los productos.*/
