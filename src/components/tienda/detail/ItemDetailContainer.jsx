@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import productsApi from '../../..//api/productsApi';
+// import { collection, onSnapshot } from '@firebase/firestore';
+// import db from "../../../firebase-config"
 
 const ItemDetailContainer = () => {
   
@@ -16,21 +18,24 @@ const ItemDetailContainer = () => {
 
   const getItem = async () => {    
 
-    //Creamos una promesa que carga los productos..
     const res = await productsApi.get( productUrl + userId )
     const data = await res.data  
     
     try {
       setTimeout( () => {
         setItem(data)
-      }, 800)       
-      setTimeout( () => {
         setLoader(false)
-      }, 1000)      
+      }, 800)             
     }
     catch(err) {
       console.warn(err);
     }  
+
+    // onSnapshot(collection(db, "products"), (snapshot) => {
+    //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
+    //   setItem(data.find (dt => dt.id === userId ))
+    //   setLoader(false)
+    // })
 
   }
   

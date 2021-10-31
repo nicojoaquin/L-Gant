@@ -7,7 +7,6 @@ const Item = ({product}) => (
   <Link 
     to={`/tienda/${product.id}`}
     className = "item" 
-    onClick= { () => console.log(product) }
     style = {{
       backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
     }}>

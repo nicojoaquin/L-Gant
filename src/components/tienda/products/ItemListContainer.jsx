@@ -4,75 +4,94 @@ import productsApi from '../../../api/productsApi';
 import Category from './Category';
 import Finder from './Finder'
 import ItemList from "./Itemlist"
+// import { collection, onSnapshot } from '@firebase/firestore';
+// import db from "../../../firebase-config"
 
 
 const ItemListContainer = () => {
  
   const {catId} = useParams()
   const [items,  setItems]  = useState([])
-  const [category, setCategory] = useState()
   const [loader, setLoader] = useState(true)
 
   const productsUrl = `https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/`
 
   useEffect( () => {      
-    if (category) {
+    if (catId) {
       getItemByCat(productsUrl)
-    } 
-     else getItems(productsUrl)  
+    } else {
+      getItems(productsUrl)
+    }  
   },[catId])
   
   const getItems = async (api) => {    
 
-    //Creamos una promesa que carga los productos..
+    //Creamos una promesa que carga los productos.
     const res = await productsApi.get(api)
     const data = await res.data;    
     
     try {
       setTimeout( () => {
         setItems(data)
-      }, 800)       
-      setTimeout( () => {
         setLoader(false)
-      }, 1000)
+      }, 800)       
+
     }
     catch(err) {
       console.warn(err);
-    }  
-
+    } 
+    
+    // onSnapshot(collection(db, "products"), (snapshot) => {
+    //   setItems(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+    //   setLoader(false)
+    // })
+    
   }
 
   const getItemByCat = async (api) => {    
-    
-    const res = await productsApi.get(api)
-    const data = await res.data;
 
+    const res = await productsApi.get(api)
+    const data = await res.data;    
+    
     try {
       setTimeout( () => {
-        setCategory(data.filter(dt => dt.category === catId))
+        setItems(data.filter(dt => dt.category === catId)) 
+        setLoader(false)
       }, 800)       
+
     }
     catch(err) {
       console.warn(err);
-    }
+    } 
+    
+    // onSnapshot(collection(db, "products"), (snapshot) => {
+    //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
+    //   setItems(data.filter(dt => dt.category === catId))
+    //   setLoader(false)
+    // })
+  
   }
-
+  
   return (
 
-    loader ?        
-        <svg 
-          className = "cssload-spin-box loader"
-          style = {{marginTop: 400}}>
-        </svg> :
-        
     /*Cuando termina de cargar, aparecen los productos.*/
     <div className = "container">
-      <Finder products = {items} />
-      <div className = "item__container">    
-      <Category />
-        <ItemList products = {items} />           
-      </div>
-    
+
+      {
+        loader ?       
+          <svg 
+          className = "cssload-spin-box loader"
+          style = {{marginTop: 400}}>
+          </svg> : 
+      
+
+        <div className = "item__container">    
+        <Finder products = {items} />
+        <Category />
+          <ItemList products = {items} />           
+        </div>
+      }
+
     </div>
 
   )
