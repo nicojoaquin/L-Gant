@@ -8,6 +8,8 @@ const ItemDetailContainer = () => {
   const [item,  setItem]  = useState([])
   const [loader, setLoader] = useState(true)
 
+  const productUrl = `https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/` 
+
   useEffect( () => {    
     getItem()
   },[])
@@ -15,8 +17,8 @@ const ItemDetailContainer = () => {
   const getItem = async () => {    
 
     //Creamos una promesa que carga los productos..
-    const res = await productsApi.get(`https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/${userId}`)
-    const { data } = res  
+    const res = await productsApi.get( productUrl + userId )
+    const data = await res.data  
     
     try {
       setTimeout( () => {

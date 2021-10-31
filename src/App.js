@@ -6,6 +6,7 @@ import Tienda from "./pages/Tienda";
 import ItemDetailContainer from "./components/tienda/detail/ItemDetailContainer";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
+import ItemListContainer from "./components/tienda/products/ItemListContainer";
 
 
 const App = () => {
@@ -22,6 +23,9 @@ const App = () => {
         </Route>
         <Route exact path="/tienda">
           <Tienda />
+        </Route>
+        <Route exact path="/tienda/category/:catId">
+          <ItemListContainer />
         </Route>
         <Route path="/tienda/:userId">
           <ItemDetailContainer />
