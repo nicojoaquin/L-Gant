@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 import CartWidget from './CartWidget';
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 
 const Header = ({title}) => {
+
+  const [nav, setNav] = useState(false)
+
+  const handleNav = () => {
+    setNav(true)
+    nav && setNav(false)
+  }
 
   return (
     <>
@@ -16,8 +23,13 @@ const Header = ({title}) => {
         </div>
 
         <div className= "header__assets">
-          <NavBar />
+          <NavBar nav={nav} setNav={setNav}/>
           <CartWidget />   
+          <div className="bars" onClick={handleNav}>        
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </div>
         </div>
 
       </header>

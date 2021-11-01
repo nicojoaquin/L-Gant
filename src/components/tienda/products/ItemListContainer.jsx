@@ -81,7 +81,6 @@ const ItemListContainer = () => {
           style = {{marginTop: 400}}>
           </svg> : 
       
-
         <div className = "item__container">    
         <Finder products = {items} />
         <Category />

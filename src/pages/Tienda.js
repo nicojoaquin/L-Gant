@@ -5,9 +5,9 @@ const Tienda = () => {
 
   return (  
 
-    <main className = "main">
+    <section className = "main">
       <ItemListContainer />
-    </main>  
+    </section>  
     
   )
 

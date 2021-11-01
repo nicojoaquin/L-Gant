@@ -26,7 +26,7 @@ const App = () => {
         <Route exact path="/tienda/category/:catId">
           <Tienda />
         </Route>
-        <Route path="/tienda/:userId">
+        <Route exact path="/tienda/:userId">
           <ItemDetailContainer />
         </Route>
         <Route path="/nosotros">

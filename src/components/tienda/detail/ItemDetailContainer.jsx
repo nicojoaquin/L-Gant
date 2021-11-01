@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import productsApi from '../../..//api/productsApi';
+import ItemDetail from './ItemDetail';
 // import { collection, onSnapshot } from '@firebase/firestore';
 // import db from "../../../firebase-config"
 
@@ -22,10 +23,8 @@ const ItemDetailContainer = () => {
     const data = await res.data  
     
     try {
-      setTimeout( () => {
         setItem(data)
-        setLoader(false)
-      }, 800)             
+        setLoader(false)           
     }
     catch(err) {
       console.warn(err);
@@ -48,18 +47,7 @@ const ItemDetailContainer = () => {
         style = {{marginTop: 400}}>
         </svg> :
         
-        <div 
-        className = "item" 
-        onClick= { () => console.log(item) }
-        style = {{
-          backgroundImage: `url(${process.env.PUBLIC_URL + item.img})`
-        }}>
-          <div className= "item__info">
-            <h3 className = "item__name" >{item.name}</h3>
-            <h4 className = "item__price" >${item.price}</h4>
-          </div>  
-        </div>
-        
+        <ItemDetail item={item} />   
       }
     </section>
 

@@ -1,9 +1,10 @@
 import React from 'react'
+import HomeContainer from '../components/home/HomeContainer'
 
 const Inicio = () => {
   return (
-    <section>
-      <h1>Home</h1>
+    <section className="main">
+     <HomeContainer />
     </section>
   )
 }
