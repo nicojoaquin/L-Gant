@@ -3,9 +3,9 @@ import HomeContainer from '../components/home/HomeContainer'
 
 const Inicio = () => {
   return (
-    <section className="main">
+    <main>
      <HomeContainer />
-    </section>
+    </main>
   )
 }
 

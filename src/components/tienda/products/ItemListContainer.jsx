@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useParams } from 'react-router';
 import productsApi from '../../../api/productsApi';
 import Category from './Category';
@@ -11,10 +11,18 @@ import ItemList from "./Itemlist"
 const ItemListContainer = () => {
  
   const {catId} = useParams()
+  const isMounted = useRef(true)
   const [items,  setItems]  = useState([])
   const [loader, setLoader] = useState(true)
 
   const productsUrl = `https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/`
+
+  useEffect(() => {
+
+    return () => {
+      isMounted.current = false
+    }
+  },[])
 
   useEffect( () => {      
     if (catId) {
@@ -31,9 +39,12 @@ const ItemListContainer = () => {
     const data = await res.data;    
     
     try {
+
       setTimeout( () => {
-        setItems(data)
-        setLoader(false)
+        if (isMounted.current) {
+          setItems(data)
+          setLoader(false)
+        }
       }, 800)       
 
     }
@@ -54,8 +65,10 @@ const ItemListContainer = () => {
     const data = await res.data;    
     
     try {
-      setItems(data.filter(dt => dt.category === catId)) 
-      setLoader(false)     
+      if(isMounted.current) {        
+        setItems(data.filter(dt => dt.category === catId)) 
+        setLoader(false)     
+      }
     }
     catch(err) {
       console.warn(err);
@@ -82,8 +95,8 @@ const ItemListContainer = () => {
           </svg> : 
       
         <div className = "item__container">    
-        <Finder products = {items} />
-        <Category />
+          <Finder products = {items} />
+          <Category />
           <ItemList products = {items} />           
         </div>
       }

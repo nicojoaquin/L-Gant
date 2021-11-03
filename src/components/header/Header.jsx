@@ -3,14 +3,14 @@ import NavBar from "./NavBar";
 import CartWidget from './CartWidget';
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
+import NavButton from "./NavButton";
 
 const Header = ({title}) => {
 
   const [nav, setNav] = useState(false)
 
   const handleNav = () => {
-    setNav(true)
-    nav && setNav(false)
+    setNav(!nav)
   }
 
   return (
@@ -25,11 +25,7 @@ const Header = ({title}) => {
         <div className= "header__assets">
           <NavBar nav={nav} setNav={setNav}/>
           <CartWidget />   
-          <div className="bars" onClick={handleNav}>        
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </div>
+          <NavButton handleNav={handleNav} />
         </div>
 
       </header>

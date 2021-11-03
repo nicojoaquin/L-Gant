@@ -12,10 +12,10 @@ const Destacados = () => {
 
       <Slider className="sldierContent">
         <div className="sldierContent-Item">
-          <img className="sliderImg" src={slider2} alt="" />
+          <img className="sliderImg" src= {slider1} alt="" />
         </div>
         <div className="sldierContent-Item">
-          <img className="sliderImg" src={slider1} alt="" />
+          <img className="sliderImg" src={slider2} alt="" />
         </div>
       </Slider>
 
