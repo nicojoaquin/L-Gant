@@ -1,6 +1,7 @@
 import {useEffect, useState, useRef} from "react";
 import { useParams } from "react-router";
 import productsApi from "../api/productsApi";
+import Finder from "../components/tienda/products/Finder";
 
 const useProducts = () => {
 
@@ -13,7 +14,7 @@ const useProducts = () => {
     getData()
   },[catId])
 
-  const getData = async () => {
+  const getData = async (input) => {
 
     //Creamos una promesa que carga los productos.
     const res = await productsApi.get();
@@ -32,11 +33,12 @@ const useProducts = () => {
       }  
       catch(err) {
         console.warn(err);
-      } 
+      }
       
   }
+
        
-    return {data, loader, detailData};
+    return {data, loader, detailData, getData};
   
 }
 

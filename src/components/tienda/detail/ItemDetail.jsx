@@ -8,7 +8,7 @@ const ItemDetail = ({item}) => {
   return (
     <>
 
-      <div className="img-desc">
+      
 
         <div 
           className = "item-img" 
@@ -18,7 +18,7 @@ const ItemDetail = ({item}) => {
           }}>
         </div>
 
-      </div>
+ 
 
       <div className="detail-info">
         
@@ -52,7 +52,6 @@ const ItemDetail = ({item}) => {
         <div className="add__cart">
           <button className="add__cart--button">Agregar al carrito</button>
         </div>
-        <hr />
 
       </div>
       
