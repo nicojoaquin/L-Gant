@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react'
-import { useParams } from 'react-router';
-import productsApi from '../../../api/productsApi';
-import Category from './Category';
+import React from 'react'
+import useProducts from '../../../hooks/useProducts';
 import Finder from './Finder'
+import Category from './Category';
 import ItemList from "./Itemlist"
 // import { collection, onSnapshot } from '@firebase/firestore';
 // import db from "../../../firebase-config"
@@ -10,77 +9,7 @@ import ItemList from "./Itemlist"
 
 const ItemListContainer = () => {
  
-  const {catId} = useParams()
-  const isMounted = useRef(true)
-  const [items,  setItems]  = useState([])
-  const [loader, setLoader] = useState(true)
-
-  const productsUrl = `https://my-json-server.typicode.com/nicojoaquin/productsApi/productos/`
-
-  useEffect(() => {
-
-    return () => {
-      isMounted.current = false
-    }
-  },[])
-
-  useEffect( () => {      
-    if (catId) {
-      getItemByCat(productsUrl)
-    } else {
-      getItems(productsUrl)
-    }  
-  },[catId])
-  
-  const getItems = async (api) => {    
-
-    //Creamos una promesa que carga los productos.
-    const res = await productsApi.get(api)
-    const data = await res.data;    
-    
-    try {
-
-      setTimeout( () => {
-        if (isMounted.current) {
-          setItems(data)
-          setLoader(false)
-        }
-      }, 800)       
-
-    }
-    catch(err) {
-      console.warn(err);
-    } 
-    
-    // onSnapshot(collection(db, "products"), (snapshot) => {
-    //   setItems(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
-    //   setLoader(false)
-    // })
-    
-  }
-
-  const getItemByCat = async (api) => {    
-
-    const res = await productsApi.get(api)
-    const data = await res.data;    
-    
-    try {
-      if(isMounted.current) {        
-        setItems(data.filter(dt => dt.category === catId)) 
-        setLoader(false)     
-      }
-    }
-    catch(err) {
-      console.warn(err);
-    } 
-    
-    // onSnapshot(collection(db, "products"), (snapshot) => {
-    //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
-    //   setItems(data.filter(dt => dt.category === catId))
-    //   setLoader(false)
-    // })
-  
-  }
+  const {data: items, loader} = useProducts();
 
   return (
 

@@ -1,16 +1,12 @@
 import React from 'react'
 import ItemListContainer from '../components/tienda/products/ItemListContainer'
 
-const Tienda = () => {
-
+const Tienda = () => { 
   return (  
-
     <section className = "main">
       <ItemListContainer />
-    </section>  
-    
+    </section>    
   )
-
 }
 
 export default Tienda;
