@@ -17,7 +17,6 @@ const Header = ({title}) => {
   const closeAll = () => {
     setNav(false)
     setCatOpen(false)
-
   }
 
   return (

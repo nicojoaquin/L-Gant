@@ -7,7 +7,7 @@ const useProducts = () => {
   const {catId} = useParams()
   const isMounted = useRef(true)
   const [data, setData] = useState([])
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(true)
 
   useEffect(() => {
 
@@ -22,9 +22,7 @@ const useProducts = () => {
 
   const getData = async () => {
 
-    //Creamos una promesa que carga los productos.
-
-    setLoader(true)     
+    //Creamos una promesa que carga los productos.   
     const res = await productsApi.get();
     const resp = await res.data;    
     
@@ -34,15 +32,14 @@ const useProducts = () => {
                 setData(resp)  
                 setLoader(false)
               }  
-            },700) 
+            },200) 
       }  
       catch(err) {
         console.warn(err);
       }
       
   }
-
-       
+      
     return {data, loader};
   
 }
