@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router';
 import useProducts from '../../../hooks/useProducts';
-import Finder from './Finder'
+// import Finder from './Finder'
 import Category from './Category';
 import ItemList from "./Itemlist"
 // import { collection, onSnapshot } from '@firebase/firestore';
@@ -9,11 +10,12 @@ import ItemList from "./Itemlist"
 
 const ItemListContainer = () => {
  
+  const {catId} = useParams()
   const {data, loader} = useProducts();
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    setItems(data)
+    setItems(data.filter(dt => dt.category === catId))   
   },[data])
 
   return (
@@ -22,17 +24,22 @@ const ItemListContainer = () => {
     <div className = "container">
 
       {
-        loader ?       
+        loader ?        
           <svg 
           className = "cssload-spin-box loader"
           style = {{marginTop: 400}}>
-          </svg> : 
-      
-        <div className = "item__container">    
-          {/* <Finder items={items} setItems={setItems}/> */}
-          <Category />
-          <ItemList products = {items} />           
-        </div>
+          </svg> 
+        :     
+        <div>
+          <h2 className = "products-title">Productos</h2>
+          <br />
+          <hr />
+          <div className = "item__container">  
+            {/* <Finder items={items} setItems={setItems}/>  */}
+            <Category />
+            <ItemList products = {items} />           
+          </div>
+        </div>  
       }
 
     </div>

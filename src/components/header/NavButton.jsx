@@ -1,11 +1,11 @@
 import React from 'react'
 
-const NavButton = ({handleNav}) => {
+const NavButton = ({nav, handleNav}) => {
   return (
     <div className="bars" onClick={handleNav}>        
-      <span className="bar"></span>
-      <span className="bar"></span>
-      <span className="bar"></span>
+      <span className={`bar ${nav && "barTop"}`}></span>
+      <span className={`bar ${nav && "barMid"}`}></span>
+      <span className={`bar ${nav && "barBottom"}`}></span>
     </div>
   )
 }

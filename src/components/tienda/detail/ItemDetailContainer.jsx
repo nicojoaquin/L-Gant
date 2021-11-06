@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
   
   const {userId} = useParams()
   const isMounted = useRef(true)
-  const {detailData, loader} = useProducts()
+  const {data, loader} = useProducts()
   const [item,  setItem]  = useState([])
 
   useEffect(() => {
@@ -20,8 +20,10 @@ const ItemDetailContainer = () => {
   },[])
 
   useEffect(()=> {
-    setItem(detailData.find (dt => dt.id === userId ))  
-  },[detailData])
+    if(isMounted.current) {
+      setItem(data.find (dt => dt.id === userId ))  
+    }
+  },[data])
 
   //   // onSnapshot(collection(db, "products"), (snapshot) => {
   //   //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
