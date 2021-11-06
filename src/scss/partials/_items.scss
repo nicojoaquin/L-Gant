@@ -77,6 +77,9 @@
   gap: 2rem;
   margin-top: 1rem;
 }
+.category__container:last-child {
+  align-self: flex-start;
+}
 .category__link {
   color: $colorPrincipal;
   background-color: $colorSecundario;
@@ -139,7 +142,7 @@
 .add__cart--button:hover {
   background-color: rgba(127, 250, 4, 0.5);
 }
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 800px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -196,16 +199,22 @@
   }
 }
 
-@media screen and (min-width: 1170px) {
+@media screen and (min-width: 960px) {
   .item__container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 25rem;
+    gap: 20rem;
+    padding: 0.5rem;
   }
   .category__container {
     align-self: flex-start;
     flex-direction: column;
     width: 30%;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .item__container {
+    gap: 5rem;
   }
 }

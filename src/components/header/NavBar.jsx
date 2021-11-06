@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({nav,  setNav, catOpen, setCatOpen, closeAll}) => {
+const NavBar = ({nav, setNav , catOpen, setCatOpen, closeAll}) => {
 
 return (
    
     <nav className={nav ? "navOpen" : "nav"}>  
         <Link onClick={() => closeAll() } to= "/" className = "links">Inicio</Link>
-        <div style={{cursor:"pointer", position:"relative"}} className = "links store" onClick={() => setCatOpen(!catOpen)}><p>Tienda ⇓</p>
+        <div style={{cursor:"pointer", position:"relative", bottom:4}} className = "links store" onClick={() => setCatOpen(!catOpen)}><p>Tienda <span className={`arrow ${catOpen && "arrowDown" }`}>➨</span></p>
           <div className={catOpen ? "category-nav-open" : "category-nav" }>
             <Link to = '/tienda/category/pantalones' className="category__link-nav" onClick={() => setNav(false) } >Pantalones</Link>
             <Link to = '/tienda/category/camisas' className="category__link-nav" onClick={() => setNav(false) } >Camisas</Link>

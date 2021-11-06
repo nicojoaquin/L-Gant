@@ -32,7 +32,7 @@ const useProducts = () => {
                 setData(resp)  
                 setLoader(false)
               }  
-            },200) 
+            },700) 
       }  
       catch(err) {
         console.warn(err);

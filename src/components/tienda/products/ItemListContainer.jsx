@@ -16,7 +16,8 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setItems(data.filter(dt => dt.category === catId))   
-  },[data])
+  },[data, catId])
+
 
   return (
 

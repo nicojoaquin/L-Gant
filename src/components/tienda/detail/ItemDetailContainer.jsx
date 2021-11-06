@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     if(isMounted.current) {
       setItem(data.find (dt => dt.id === userId ))  
     }
-  },[data])
+  },[data, userId])
 
   //   // onSnapshot(collection(db, "products"), (snapshot) => {
   //   //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
