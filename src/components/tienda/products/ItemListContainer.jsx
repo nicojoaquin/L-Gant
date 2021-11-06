@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import {ThemeContext} from "../../../App"
 import { useParams } from 'react-router';
 import useProducts from '../../../hooks/useProducts';
 // import Finder from './Finder'
@@ -9,7 +10,7 @@ import ItemList from "./Itemlist"
 
 
 const ItemListContainer = () => {
- 
+
   const {catId} = useParams()
   const {data, loader} = useProducts();
   const [items, setItems] = useState([])
