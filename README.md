@@ -32,3 +32,4 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - Firebase
 - Font Awesome
 - Sass
+- React Awesome Reveal
