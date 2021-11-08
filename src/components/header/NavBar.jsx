@@ -7,7 +7,7 @@ return (
    
     <nav className={nav ? "navOpen" : "nav"}>  
         <Link onClick={() => closeAll() } to= "/" className = "links">Inicio</Link>
-        <div style={{cursor:"pointer", position:"relative", bottom:4}} className = "links store" onClick={() => setCatOpen(!catOpen)}><p>Tienda <span className={`arrow ${catOpen && "arrowDown" }`}>➨</span></p>
+        <div style={{cursor:"pointer", position:"relative", bottom:3}} className = "links store" onClick={() => setCatOpen(!catOpen)}><p>Tienda <span className={`arrow ${catOpen && "arrowDown" }`}>➨</span></p>
           <div className={catOpen ? "category-nav-open" : "category-nav" }>
             <Link to = '/tienda/category/pantalones' className="category__link-nav" onClick={() => setNav(false) } >Pantalones</Link>
             <Link to = '/tienda/category/camisas' className="category__link-nav" onClick={() => setNav(false) } >Camisas</Link>

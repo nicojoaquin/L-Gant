@@ -42,7 +42,7 @@ const ItemDetailContainer = () => {
         style = {{marginTop: 400}}>
         </svg> :
         
-        <ItemDetail item={item} />   
+        <ItemDetail product={item} />   
       }
     </div>
 

@@ -1,39 +1,38 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../../context/CartContext';
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({product}) => {
 
-  let cuotas = item.price / 12;
-  let cuotasEntero = cuotas.toFixed()
+  const { handleAdd } = useContext(CartContext)
+
+  let cuotas = product.price / 12;
+  let cuotasEntero = cuotas.toFixed(2)
 
   return (
     <>
 
-      
-
-        <div 
-          className = "item-img" 
-          onClick= { () => console.log(item) }
-          style = {{
-            backgroundImage: `url(${process.env.PUBLIC_URL + item.img})`
-          }}>
-        </div>
-
- 
+      <div 
+        className = "item-img" 
+        onClick= { () => console.log(product) }
+        style = {{
+          backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
+         }}>
+      </div>
 
       <div className="detail-info">
         
         <div className="price-name">
-          <h2>{item.name}</h2>
+          <h2>{product.name}</h2>
           <div className="item-price">
-            <h3>${item.price}</h3>
+            <h3>${product.price}</h3>
             <span>12 cuotas sin interes de ${cuotasEntero}!</span>
           </div>
         </div>
 
         <div className="item-desc">
-          <p>{item.desc}.</p>
+          <p>{product.desc}.</p>
           <br />
-          <span>{item.comp}</span>
+          <span>{product.comp}</span>
         </div>
 
         <hr />
@@ -50,7 +49,7 @@ const ItemDetail = ({item}) => {
         </div>
 
         <div className="add__cart">
-          <button className="add__cart--button">Agregar al carrito</button>
+          <button onClick={() => handleAdd(product)} className="add__cart--button">Agregar al carrito</button>
         </div>
 
       </div>

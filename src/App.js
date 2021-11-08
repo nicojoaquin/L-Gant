@@ -1,40 +1,34 @@
 import React from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, Redirect, HashRouter as Router } from "react-router-dom";
+import CartContextProvider from "./context/CartContext";
 import Header from "./components/header/Header";
 import Inicio from "./pages/Inicio";
 import Tienda from "./pages/Tienda";
 import ItemDetailContainer from "./components/tienda/detail/ItemDetailContainer";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
+import Cart from "./components/tienda/cart/Cart";
 
 const App = () => {
-  
-  const location = useLocation()
 
   return (
     //Layout de toda la página.
    <>
-      <Header title="L-Gant"/>
-        <Switch location={location} key={location.key}>
-          <Route exact path="/">
-            <Inicio />
-          </Route>
-          <Route exact path="/tienda">
-            <Tienda />
-          </Route>
-          <Route exact path="/tienda/category/:catId">
-            <Tienda />
-          </Route>
-          <Route exact path="/tienda/:userId">
-            <ItemDetailContainer />
-          </Route>
-          <Route path="/nosotros">
-            <Nosotros />
-          </Route>
-          <Route path="/contacto">
-            <Contacto />
-          </Route>
-        </Switch>     
+    <CartContextProvider>
+      <Router>
+        <Header title="L-Gant"/>
+        <Switch>
+          <Route exact path = "/" component={ Inicio } />
+          <Route exact path = "/tienda" component={ Tienda } />
+          <Route exact path = "/tienda/category/:catId" component={ Tienda } />
+          <Route exact path = "/tienda/:userId" component={ ItemDetailContainer } />
+          <Route exact path = "/nosotros" component={ Nosotros } />
+          <Route exact path = "/contacto" component={ Contacto } />
+          <Route exact path = "/cart" component={ Cart } />
+          <Redirect to = "/" />
+        </Switch>
+      </Router>
+    </CartContextProvider>     
   </>
 
   )

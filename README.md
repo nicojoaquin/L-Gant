@@ -1,8 +1,6 @@
-
-# L-Gant 
+# L-Gant
 
 Proyecto final E-commerce de indumentaria masculina para el curso de React en Coder House.
-
 
 ## Características
 
@@ -13,19 +11,15 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - Carrito de compras
 - Full responsive
 
-
 ## Tecnologías utilizadas
 
 - React JS
 - React hooks
-- Sass 
+- Sass
 - Firebase para base de datos
 
-
-
-
-
 ## Dependencias
+
 - React-Router
 - Infinite-React-Carousel
 - Axios

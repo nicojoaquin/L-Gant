@@ -34,7 +34,6 @@
   display: flex;
   gap: 30px;
   list-style: none;
-  // align-items: center;
   display: flex;
   font-weight: 600;
 }
@@ -125,14 +124,13 @@
     color: $colorSecundario;
   }
   .category-nav-open {
+    background-color: rgb(218, 211, 211);
     height: auto;
     transition: 0.3s;
     display: flex;
     margin: 0.5rem;
     padding: 0.5rem;
     gap: 1rem;
-    border-top: 1px solid black;
-    align-content: center;
     flex-direction: column;
   }
   .arrowDown {

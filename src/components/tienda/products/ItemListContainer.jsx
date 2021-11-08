@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
-import {ThemeContext} from "../../../App"
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
 import useProducts from '../../../hooks/useProducts';
 // import Finder from './Finder'
