@@ -1,9 +1,30 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../../context/CartContext';
+import Swal from 'sweetalert2'
+
+const alert = () => {
+  Swal.fire({
+    title: 'Has agregado el producto al carrito!',
+    background: "#fff",
+    padding: "4rem",
+    backdrop: false,
+    position: "center",
+    showConfirmButton: false,
+    timer: 1300,
+    customClass: {
+      title: "alert-title"
+    }
+  })
+}
 
 const ItemDetail = ({product}) => {
 
   const { handleAdd } = useContext(CartContext)
+
+  const AddToCart = () => {
+    alert()
+    handleAdd(product)
+  }
 
   let cuotas = product.price / 12;
   let cuotasEntero = cuotas.toFixed(2)
@@ -49,7 +70,7 @@ const ItemDetail = ({product}) => {
         </div>
 
         <div className="add__cart">
-          <button onClick={() => handleAdd(product)} className="add__cart--button">Agregar al carrito</button>
+          <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
         </div>
 
       </div>

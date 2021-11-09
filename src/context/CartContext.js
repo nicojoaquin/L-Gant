@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState, useEffect} from 'react'
 
 export const CartContext = createContext()
 
@@ -6,6 +6,9 @@ const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState([])
 
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(cart))
+  },[cart])
 
   //Función que agrega el producto si no existe, y si existe cambia su cantidad.
   const handleAdd = (product) => {
@@ -18,7 +21,6 @@ const CartContextProvider = ({children}) => {
     } else {
     setCart([...cart, {...product, quantity: 1}])
     }
-
   }
 
   //Función para restar el producto del carrito, si llega a 0 se elimina directamente.
@@ -58,7 +60,6 @@ const CartContextProvider = ({children}) => {
     <CartContext.Provider 
       value={{ 
         cart, 
-        setCart, 
         handleAdd, 
         handleSub,
         handleRemove,

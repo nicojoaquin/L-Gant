@@ -3,26 +3,33 @@ import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
 
-  const { cart, totalCart, handleAdd, handleSub, handleRemove, handleClear } = useContext(CartContext)
+  const {cart, totalCart, handleAdd, handleSub, handleRemove, handleClear } = useContext(CartContext)
 
   return (
-    <section>
+    <section className = "cart__container">
+      <h1>Carrito de compras</h1>
+      <hr />
       {
         cart.map( item => 
-          <div key= {item.id}>
-            <h1>{item.name}</h1>
-            <h2>{item.quantity}</h2>
-            <h3>{item.price}</h3>
-            <h4>${item.price * item.quantity}</h4>
-            <div className="add__cart">
-              <button onClick={() => handleAdd(item)} className="add__cart--button">Agregar al carrito</button>
+          <div className="cart__item" key = {item.id}>
+            <div className = "cart__item--container">  
+              <img className = "cart-img" src = {process.env.PUBLIC_URL + item.img} alt = {item.name} />
+              <h2>{item.name}</h2>
+              <h3>${item.price}</h3>
+              <div className = "item-quantity">
+                <div>
+                  <button onClick={() => handleAdd(item)}>+</button>
+                </div> 
+                <span style = {{marginRight: 10}}>{item.quantity}</span>
+                <div>
+                  <button onClick={() => handleSub(item)}>-</button>
+                </div>
+                <div>
+              </div>
+                  <button onClick={() => handleRemove(item)}>Eliminar</button>
+                </div>
+              <h4>Subtotal: ${item.price * item.quantity}</h4>
             </div> 
-            <div className="add__cart">
-              <button onClick={() => handleSub(item)} className="add__cart--button">Restar</button>
-            </div>
-            <div className="add__cart">
-              <button onClick={() => handleRemove(item)} className="add__cart--button">Eliminar</button>
-            </div>
           </div>
         )
       }
@@ -31,14 +38,14 @@ const Cart = () => {
         totalCart ? 
 
           <div>
-            <div className="add__cart">
-              <button onClick={() => handleClear()} className="add__cart--button">Elimitar todo</button>
+            <div>
+              <h1>Total: ${totalCart}</h1>
             </div>
             
             <br />
             
-            <div>
-              <h1>${totalCart}</h1>
+            <div className="add__cart">
+              <button onClick={() => handleClear()} >Vaciar carrito</button>
             </div>
           </div>
         : 

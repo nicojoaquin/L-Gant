@@ -5,9 +5,9 @@ import Header from "./components/header/Header";
 import Inicio from "./pages/Inicio";
 import Tienda from "./pages/Tienda";
 import ItemDetailContainer from "./components/tienda/detail/ItemDetailContainer";
+import Cart from "./components/tienda/cart/Cart";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
-import Cart from "./components/tienda/cart/Cart";
 
 const App = () => {
 
@@ -22,9 +22,9 @@ const App = () => {
           <Route exact path = "/tienda" component={ Tienda } />
           <Route exact path = "/tienda/category/:catId" component={ Tienda } />
           <Route exact path = "/tienda/:userId" component={ ItemDetailContainer } />
+          <Route exact path = "/cart" component={ Cart } />
           <Route exact path = "/nosotros" component={ Nosotros } />
           <Route exact path = "/contacto" component={ Contacto } />
-          <Route exact path = "/cart" component={ Cart } />
           <Redirect to = "/" />
         </Switch>
       </Router>
