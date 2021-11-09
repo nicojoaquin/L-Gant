@@ -55,6 +55,8 @@ const CartContextProvider = ({children}) => {
 
   //Calculamos el total de todos los productos del carrito.
   const totalCart = cart.reduce( (price, cartItem) => price + cartItem.quantity * cartItem.price, 0 )
+  //Sumamos las cantidades para el contador del CartWidget.
+  const totalItems = cart.reduce( (quantity, cartItem) => quantity + cartItem.quantity, 0 )
 
   return(
     <CartContext.Provider 
@@ -64,7 +66,8 @@ const CartContextProvider = ({children}) => {
         handleSub,
         handleRemove,
         handleClear,
-        totalCart
+        totalCart,
+        totalItems
       }}>
       {children}
     </CartContext.Provider>
