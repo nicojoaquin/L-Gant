@@ -16,6 +16,7 @@ const Cart = () => {
               <img className = "cart-img" src = {process.env.PUBLIC_URL + item.img} alt = {item.name} />
               <h2>{item.name}</h2>
               <h3>${item.price}</h3>
+
               <div className = "item-quantity">
                 <div>
                   <button onClick={() => handleAddMore(item)}>+</button>
@@ -24,10 +25,11 @@ const Cart = () => {
                 <div>
                   <button onClick={() => handleSub(item)}>-</button>
                 </div>
-                <div>
               </div>
-                  <button onClick={() => handleRemove(item)}>Eliminar</button>
-                </div>
+
+              <div>
+                <button onClick={() => handleRemove(item)}>Eliminar</button>
+              </div>
               <h4>Subtotal: ${item.price * item.quantity}</h4>
             </div> 
           </div>

@@ -12,7 +12,9 @@ const CartWidget = () => {
     <div className = "cart-widget" >
       <Link style={{color:"black"}} to = "/cart" >
         <FontAwesomeIcon icon={faDollyFlatbed} />
-        <span> {totalItems}</span>
+        { 
+          totalItems > 0 && <span> {totalItems}</span>
+        }
       </Link>
     </div>
   )
