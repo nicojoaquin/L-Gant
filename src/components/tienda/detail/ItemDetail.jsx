@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../../context/CartContext';
 import Swal from 'sweetalert2'
 import ItemCount from './ItemCount';
@@ -22,8 +23,10 @@ const ItemDetail = ({product}) => {
 
   const { handleAdd } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
+  const [buy, setBuy] = useState(false)
 
   const AddToCart = () => {
+    setBuy(true)
     alert()
     handleAdd(product, quantity)
   }
@@ -80,11 +83,22 @@ const ItemDetail = ({product}) => {
           </select>
         </div>
         
-        <ItemCount quantitySetted={quantity} handleAddQuantiy={handleAddQuantiy} handleSubQuantiy={handleSubQuantiy} />
-        <div className="add__cart">
-          <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
-        </div>
-
+        {
+          !buy ?  
+            <div>
+              <ItemCount quantitySetted={quantity} handleAddQuantiy={handleAddQuantiy} handleSubQuantiy={handleSubQuantiy} product = {product} />
+              <br />
+              <div className="add__cart">
+                <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
+              </div>
+            </div>
+          :
+          <div className="add__cart">
+            <Link to = "/cart" >
+              <button className="add__cart--button">Continuar con la compra</button>
+            </Link>
+          </div> 
+        }
       </div>
       
     </>     

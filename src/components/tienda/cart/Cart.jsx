@@ -3,7 +3,7 @@ import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
 
-  const {cart, totalCart, handleAdd, handleSub, handleRemove, handleClear } = useContext(CartContext)
+  const {cart, totalCart, handleAddMore, handleSub, handleRemove, handleClear } = useContext(CartContext)
 
   return (
     <section className = "cart__container">
@@ -18,7 +18,7 @@ const Cart = () => {
               <h3>${item.price}</h3>
               <div className = "item-quantity">
                 <div>
-                  <button onClick={() => handleAdd(item)}>+</button>
+                  <button onClick={() => handleAddMore(item)}>+</button>
                 </div> 
                 <span style = {{marginRight: 10}}>{item.quantity}</span>
                 <div>

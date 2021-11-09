@@ -10,6 +10,7 @@ const CartContextProvider = ({children}) => {
     sessionStorage.setItem("cart", JSON.stringify(cart))
   },[cart])
 
+
   //Función que agrega el producto si no existe, y si existe cambia su cantidad.
   const handleAdd = (product, quantitySetted) => {
 
@@ -17,11 +18,22 @@ const CartContextProvider = ({children}) => {
     
     if(exist) {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...exist, quantity: exist.quantity + 1} : cartItem) )
+      {...exist, quantity: exist.quantity + quantitySetted} : cartItem) )
     } else {
     setCart([...cart, {...product, quantity: quantitySetted}])
     }
   }
+
+  //Funcion que suma cantidad dentro del carrito.
+  const handleAddMore = (product) => {
+    const exist = cart.find( (cartItem) => cartItem.id === product.id )
+    
+    if(exist) {
+      setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
+      {...exist, quantity: exist.quantity + 1} : cartItem) )
+    }    
+  }
+
 
   //Función para restar el producto del carrito, si llega a 0 se elimina directamente.
   const handleSub = (product) => {
@@ -61,7 +73,8 @@ const CartContextProvider = ({children}) => {
   return(
     <CartContext.Provider 
       value={{ 
-        cart, 
+        cart,
+        handleAddMore, 
         handleAdd, 
         handleSub,
         handleRemove,
