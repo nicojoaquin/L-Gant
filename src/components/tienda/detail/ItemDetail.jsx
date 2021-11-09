@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../../../context/CartContext';
 import Swal from 'sweetalert2'
+import ItemCount from './ItemCount';
 
 const alert = () => {
   Swal.fire({
@@ -20,10 +21,20 @@ const alert = () => {
 const ItemDetail = ({product}) => {
 
   const { handleAdd } = useContext(CartContext)
+  const [quantity, setQuantity] = useState(1)
 
   const AddToCart = () => {
     alert()
-    handleAdd(product)
+    handleAdd(product, quantity)
+  }
+
+  const handleAddQuantiy = () => {
+   setQuantity(quantity + 1)
+  }
+  
+  const handleSubQuantiy = () => {
+    if(quantity > 1)
+    setQuantity(quantity - 1)
   }
 
   let cuotas = product.price / 12;
@@ -68,7 +79,8 @@ const ItemDetail = ({product}) => {
             <option value="l">L</option>
           </select>
         </div>
-
+        
+        <ItemCount quantitySetted={quantity} handleAddQuantiy={handleAddQuantiy} handleSubQuantiy={handleSubQuantiy} />
         <div className="add__cart">
           <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
         </div>

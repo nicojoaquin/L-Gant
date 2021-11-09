@@ -11,7 +11,7 @@ const CartContextProvider = ({children}) => {
   },[cart])
 
   //Función que agrega el producto si no existe, y si existe cambia su cantidad.
-  const handleAdd = (product) => {
+  const handleAdd = (product, quantitySetted) => {
 
     const exist = cart.find( (cartItem) => cartItem.id === product.id )
     
@@ -19,7 +19,7 @@ const CartContextProvider = ({children}) => {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
       {...exist, quantity: exist.quantity + 1} : cartItem) )
     } else {
-    setCart([...cart, {...product, quantity: 1}])
+    setCart([...cart, {...product, quantity: quantitySetted}])
     }
   }
 

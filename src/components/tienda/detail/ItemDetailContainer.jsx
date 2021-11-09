@@ -7,7 +7,7 @@ import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
   
-  const {userId} = useParams()
+  const {productId} = useParams()
   const isMounted = useRef(true)
   const {data, loader} = useProducts()
   const [item,  setItem]  = useState([])
@@ -21,9 +21,9 @@ const ItemDetailContainer = () => {
 
   useEffect(()=> {
     if(isMounted.current) {
-      setItem(data.find (dt => dt.id === userId ))  
+      setItem(data.find (dt => dt.id === productId ))  
     }
-  },[data, userId])
+  },[data, productId])
 
   //   // onSnapshot(collection(db, "products"), (snapshot) => {
   //   //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))

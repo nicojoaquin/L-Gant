@@ -1,10 +1,8 @@
 import {useEffect, useState, useRef} from "react";
-import { useParams } from "react-router";
-import productsApi from "../api/productsApi";
+import productsApi from "../data/productsApi";
 
 const useProducts = () => {
 
-  const {catId} = useParams()
   const isMounted = useRef(true)
   const [data, setData] = useState([])
   const [loader, setLoader] = useState(true)
@@ -18,7 +16,7 @@ const useProducts = () => {
 
   useEffect(() => {    
     getData()
-  },[catId])
+  },[])
 
   const getData = async () => {
 

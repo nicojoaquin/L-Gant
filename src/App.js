@@ -19,9 +19,8 @@ const App = () => {
         <Header title="L-Gant"/>
         <Switch>
           <Route exact path = "/" component={ Inicio } />
-          <Route exact path = "/tienda" component={ Tienda } />
           <Route exact path = "/tienda/category/:catId" component={ Tienda } />
-          <Route exact path = "/tienda/:userId" component={ ItemDetailContainer } />
+          <Route exact path = "/tienda/:productId" component={ ItemDetailContainer } />
           <Route exact path = "/cart" component={ Cart } />
           <Route exact path = "/nosotros" component={ Nosotros } />
           <Route exact path = "/contacto" component={ Contacto } />
