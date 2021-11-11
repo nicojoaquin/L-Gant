@@ -1,45 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { CartContext } from '../../../context/CartContext';
-import Swal from 'sweetalert2'
+import React, { useState } from 'react'
+import {useHistory} from "react-router-dom"
 import ItemCount from './ItemCount';
-
-const alert = () => {
-  Swal.fire({
-    title: 'Has agregado el producto al carrito!',
-    background: "#fff",
-    padding: "4rem",
-    backdrop: false,
-    position: "center",
-    showConfirmButton: false,
-    timer: 1300,
-    customClass: {
-      title: "alert-title"
-    }
-  })
-}
 
 const ItemDetail = ({product}) => {
 
-  const { handleAdd } = useContext(CartContext)
-  const [quantity, setQuantity] = useState(1)
+  const history = useHistory()
   const [buy, setBuy] = useState(false)
 
-  const AddToCart = () => {
-    setBuy(true)
-    alert()
-    handleAdd(product, quantity)
+  const goToCart = () => {
+    history.push('/cart')
   }
-
-  const handleAddQuantiy = () => {
-   setQuantity(quantity + 1)
-  }
-  
-  const handleSubQuantiy = () => {
-    if(quantity > 1)
-    setQuantity(quantity - 1)
-  }
-
+ 
   let cuotas = product.price / 12;
   let cuotasEntero = cuotas.toFixed(2)
 
@@ -85,19 +56,11 @@ const ItemDetail = ({product}) => {
         
         {
           !buy ?  
-            <div>
-              <ItemCount quantitySetted={quantity} handleAddQuantiy={handleAddQuantiy} handleSubQuantiy={handleSubQuantiy} product = {product} />
-              <br />
-              <div className="add__cart">
-                <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
-              </div>
-            </div>
+            <ItemCount setBuy = {setBuy} product = {product} />
           :
-          <div className="add__cart">
-            <Link to = "/cart" >
-              <button className="add__cart--button">Continuar con la compra</button>
-            </Link>
-          </div> 
+            <div className="add__cart">
+                <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
+            </div> 
         }
       </div>
       
