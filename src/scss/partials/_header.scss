@@ -159,11 +159,12 @@
     display: block;
   }
   .category-nav-open {
+    box-shadow: $boxShadow;
     background-color: $colorPrincipal;
     flex-direction: column;
     gap: 1rem;
     position: absolute;
-    top: 1.6rem;
+    top: 3.2rem;
     padding: 15px;
     border-radius: 0.5rem;
   }
