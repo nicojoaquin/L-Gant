@@ -18,22 +18,17 @@ const CartContextProvider = ({children}) => {
     
     if(exist) {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...exist, quantity: exist.quantity + quantitySetted} : cartItem) )
+      {...cartItem, quantity: cartItem.quantity + quantitySetted} : cartItem) )
     } else {
-    setCart([...cart, {...product, quantity: quantitySetted}])
+      setCart([...cart, {...product, quantity: quantitySetted}])
     }
   }
 
   //Funcion que suma cantidad dentro del carrito.
-  const handleAddMore = (product) => {
-    const exist = cart.find( (cartItem) => cartItem.id === product.id )
-    
-    if(exist) {
+  const handleAddMore = (product) => {  
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...exist, quantity: exist.quantity + 1} : cartItem) )
-    }    
+      {...cartItem, quantity: cartItem.quantity + 1} : cartItem) )     
   }
-
 
   //Función para restar el producto del carrito, si llega a 0 se elimina directamente.
   const handleSub = (product) => {
@@ -44,20 +39,14 @@ const CartContextProvider = ({children}) => {
       setCart(cart.filter( (cartItem) => cartItem.id !== product.id ))
     } else {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...exist, quantity: exist.quantity - 1} : cartItem) )
+      {...cartItem, quantity: cartItem.quantity - 1} : cartItem) )
     }
 
   }
 
   //Función que elimina directamente el producto del carrito.
   const handleRemove = (product) => {
-
-    const exist = cart.find( (cartItem) => cartItem.id === product.id )
-
-    if(exist) {
       setCart(cart.filter( (cartItem) => cartItem.id !== product.id ))
-    } 
-
   }
 
   //Función que devuelve el carrito a su estado original, vaciandolo por completo.
