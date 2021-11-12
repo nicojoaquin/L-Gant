@@ -8,6 +8,7 @@ import ItemDetailContainer from "./components/tienda/detail/ItemDetailContainer"
 import Cart from "./components/tienda/cart/Cart";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
+import Search from "./components/tienda/search/Search";
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route exact path = "/cart" component={ Cart } />
           <Route exact path = "/nosotros" component={ Nosotros } />
           <Route exact path = "/contacto" component={ Contacto } />
+          <Route exact path = "/search" component={ Search } />
           <Redirect to = "/" />
         </Switch>
       </Router>

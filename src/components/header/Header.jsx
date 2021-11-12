@@ -27,7 +27,7 @@ const Header = ({title}) => {
           <Link to="/"><h1 className = "title__h1" onClick={() => closeAll()}> {title} </h1></Link>
           <img src= {process.env.PUBLIC_URL + "/assets/logo.ico"} alt= "logo"/>
         </div>
-
+              
         <div className= "header__assets">
           <NavBar nav={nav} setNav={setNav} catOpen={catOpen} setCatOpen={setCatOpen} closeAll={closeAll}/>
           <CartWidget />   

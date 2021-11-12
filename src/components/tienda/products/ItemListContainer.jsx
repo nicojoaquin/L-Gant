@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router';
 import useProducts from '../../../hooks/useProducts';
-// import Finder from './Finder'
 import Category from './Category';
 import ItemList from "./Itemlist"
 // import { collection, onSnapshot } from '@firebase/firestore';
@@ -36,7 +35,6 @@ const ItemListContainer = () => {
           <br />
           <hr />
           <div className = "item__container">  
-            {/* <Finder items={items} setItems={setItems}/>  */}
             <Category />
             <ItemList products = {items} />           
           </div>

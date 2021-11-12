@@ -11,17 +11,15 @@ const Item = ({product}) => (
         className = "item" 
         style = {{
           backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
-        }}
-            >
+        }}>
 
-          <div className= "item__info">
-            <h3 className = "item__name" >{product.name}</h3>
-            <h4 className = "item__price" >${product.price}</h4>
-          </div>
+        <div className= "item__info">
+          <h3 className = "item__name" >{product.name}</h3>
+          <h4 className = "item__price" >${product.price}</h4>
+        </div>
 
       </div>
     </Fade>  
-
   </Link>
   
 )
