@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/React/static/css/main.2069bc6d.chunk.css",
+    "main.css": "/React/static/css/main.e5d9eb69.chunk.css",
     "main.js": "/React/static/js/main.97d4d71d.chunk.js",
     "main.js.map": "/React/static/js/main.97d4d71d.chunk.js.map",
     "runtime-main.js": "/React/static/js/runtime-main.281585c9.js",
@@ -10,7 +10,7 @@
     "static/js/2.735ab527.chunk.js.map": "/React/static/js/2.735ab527.chunk.js.map",
     "index.html": "/React/index.html",
     "static/css/2.674c27c3.chunk.css.map": "/React/static/css/2.674c27c3.chunk.css.map",
-    "static/css/main.2069bc6d.chunk.css.map": "/React/static/css/main.2069bc6d.chunk.css.map",
+    "static/css/main.e5d9eb69.chunk.css.map": "/React/static/css/main.e5d9eb69.chunk.css.map",
     "static/js/2.735ab527.chunk.js.LICENSE.txt": "/React/static/js/2.735ab527.chunk.js.LICENSE.txt",
     "static/media/slider1.2ef86920.jpg": "/React/static/media/slider1.2ef86920.jpg",
     "static/media/slider2.8d13048a.jpg": "/React/static/media/slider2.8d13048a.jpg"
@@ -19,7 +19,7 @@
     "static/js/runtime-main.281585c9.js",
     "static/css/2.674c27c3.chunk.css",
     "static/js/2.735ab527.chunk.js",
-    "static/css/main.2069bc6d.chunk.css",
+    "static/css/main.e5d9eb69.chunk.css",
     "static/js/main.97d4d71d.chunk.js"
   ]
 }
