@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/React/static/css/main.e5d9eb69.chunk.css",
-    "main.js": "/React/static/js/main.e21b871a.chunk.js",
-    "main.js.map": "/React/static/js/main.e21b871a.chunk.js.map",
-    "runtime-main.js": "/React/static/js/runtime-main.281585c9.js",
-    "runtime-main.js.map": "/React/static/js/runtime-main.281585c9.js.map",
-    "static/css/2.674c27c3.chunk.css": "/React/static/css/2.674c27c3.chunk.css",
-    "static/js/2.735ab527.chunk.js": "/React/static/js/2.735ab527.chunk.js",
-    "static/js/2.735ab527.chunk.js.map": "/React/static/js/2.735ab527.chunk.js.map",
-    "index.html": "/React/index.html",
-    "static/css/2.674c27c3.chunk.css.map": "/React/static/css/2.674c27c3.chunk.css.map",
-    "static/css/main.e5d9eb69.chunk.css.map": "/React/static/css/main.e5d9eb69.chunk.css.map",
-    "static/js/2.735ab527.chunk.js.LICENSE.txt": "/React/static/js/2.735ab527.chunk.js.LICENSE.txt",
-    "static/media/slider1.2ef86920.jpg": "/React/static/media/slider1.2ef86920.jpg",
-    "static/media/slider2.8d13048a.jpg": "/React/static/media/slider2.8d13048a.jpg"
+    "main.css": "/L-Gant/static/css/main.e5d9eb69.chunk.css",
+    "main.js": "/L-Gant/static/js/main.df1be9e5.chunk.js",
+    "main.js.map": "/L-Gant/static/js/main.df1be9e5.chunk.js.map",
+    "runtime-main.js": "/L-Gant/static/js/runtime-main.9fc81788.js",
+    "runtime-main.js.map": "/L-Gant/static/js/runtime-main.9fc81788.js.map",
+    "static/css/2.674c27c3.chunk.css": "/L-Gant/static/css/2.674c27c3.chunk.css",
+    "static/js/2.735ab527.chunk.js": "/L-Gant/static/js/2.735ab527.chunk.js",
+    "static/js/2.735ab527.chunk.js.map": "/L-Gant/static/js/2.735ab527.chunk.js.map",
+    "index.html": "/L-Gant/index.html",
+    "static/css/2.674c27c3.chunk.css.map": "/L-Gant/static/css/2.674c27c3.chunk.css.map",
+    "static/css/main.e5d9eb69.chunk.css.map": "/L-Gant/static/css/main.e5d9eb69.chunk.css.map",
+    "static/js/2.735ab527.chunk.js.LICENSE.txt": "/L-Gant/static/js/2.735ab527.chunk.js.LICENSE.txt",
+    "static/media/slider1.2ef86920.jpg": "/L-Gant/static/media/slider1.2ef86920.jpg",
+    "static/media/slider2.8d13048a.jpg": "/L-Gant/static/media/slider2.8d13048a.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.281585c9.js",
+    "static/js/runtime-main.9fc81788.js",
     "static/css/2.674c27c3.chunk.css",
     "static/js/2.735ab527.chunk.js",
     "static/css/main.e5d9eb69.chunk.css",
-    "static/js/main.e21b871a.chunk.js"
+    "static/js/main.df1be9e5.chunk.js"
   ]
 }
