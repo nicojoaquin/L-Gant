@@ -2,8 +2,6 @@ import React, {useState, useEffect, useRef} from 'react';
 import { useParams } from "react-router-dom";
 import useProducts from '../../../hooks/useProducts';
 import ItemDetail from './ItemDetail';
-// import { collection, onSnapshot } from '@firebase/firestore';
-// import db from "../../../firebase-config"
 
 const ItemDetailContainer = () => {
   
@@ -25,15 +23,9 @@ const ItemDetailContainer = () => {
     }
   },[data, productId])
 
-  //   // onSnapshot(collection(db, "products"), (snapshot) => {
-  //   //   const data = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
-  //   //   setItem(data.find (dt => dt.id === userId ))
-  //   //   setLoader(false)
-  //   // })
-
-  // }
   
   return (
+
     <div className="detail-container">
       {
         loader ?        
@@ -45,8 +37,8 @@ const ItemDetailContainer = () => {
         <ItemDetail product={item} />   
       }
     </div>
-
   )
+  
 }
 
 export default ItemDetailContainer

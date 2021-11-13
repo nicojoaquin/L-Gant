@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Fade } from 'react-awesome-reveal';
 import {useHistory} from "react-router-dom"
 import ItemCount from './ItemCount';
 
@@ -15,18 +16,18 @@ const ItemDetail = ({product}) => {
   let cuotasEntero = cuotas.toFixed(2)
 
   return (
-    <>
 
+    <Fade>     
       <div 
         className = "item-img" 
         onClick= { () => console.log(product) }
         style = {{
           backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
-         }}>
+        }}>
       </div>
 
       <div className="detail-info">
-        
+          
         <div className="price-name">
           <h2>{product.name}</h2>
           <div className="item-price">
@@ -43,7 +44,6 @@ const ItemDetail = ({product}) => {
 
         <hr />
 
-  
         <div className="item-talles">
           <h3>Selecciona un talle</h3>
           <br />
@@ -53,18 +53,18 @@ const ItemDetail = ({product}) => {
             <option value="l">L</option>
           </select>
         </div>
-        
+          
         {
           !buy ?  
             <ItemCount setBuy = {setBuy} product = {product} />
           :
             <div className="add__cart">
-                <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
+              <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
             </div> 
         }
-      </div>
-      
-    </>     
+      </div>    
+    </Fade>    
+    
   )
 
 }
