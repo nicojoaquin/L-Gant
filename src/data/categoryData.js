@@ -1,6 +1,10 @@
 export const categoryData = 
   [
     {
+      id: "all",
+      name: "Todos los productos"
+    },
+    {
       id: "pantalones",
       name: "Pantalones"
     },

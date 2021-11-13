@@ -8,6 +8,7 @@ const Category = () => {
     <>
       <div className="category__container">
         <h3 className= "category-title">Filtros</h3>
+        
 
         {
           categoryData.map(cat => 

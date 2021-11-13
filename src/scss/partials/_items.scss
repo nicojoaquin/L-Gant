@@ -7,8 +7,9 @@
 }
 .item__container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  gap: 10rem;
 }
 .products-title {
   text-align: center;
@@ -72,20 +73,21 @@
 }
 .category__container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-self: flex-start;
+  flex-direction: column;
   gap: 2rem;
   margin-top: 1rem;
-}
-.category__container:last-child {
-  align-self: flex-start;
+  width: 30%;
 }
 .category__link {
   color: $colorPrincipal;
   background-color: $colorSecundario;
   padding: 0.4rem;
-  width: 8rem;
+  width: 15rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 5%;
   box-shadow: $boxShadow;
   transition: 0.3s;
@@ -97,7 +99,7 @@
 .active {
   background-color: $colorPrincipal;
   color: $colorSecundario;
-  font-weight: 700;
+  font-weight: bold;
 }
 .active:hover {
   background-color: $colorPrincipal;
@@ -143,7 +145,7 @@
 }
 .add__cart--button {
   display: flex;
-  width: 20rem;
+  width: 18rem;
   justify-content: center;
   gap: 1rem;
   border: 1px solid lawngreen;
@@ -185,7 +187,8 @@
   align-items: center;
   gap: 5px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 1002px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -200,13 +203,12 @@
   .item-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 9%;
-    margin-right: 25px;
   }
   .item__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 150px;
   }
   .item {
     width: 150px;
@@ -218,17 +220,15 @@
     height: 12%;
   }
   .category__container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
     gap: 1rem;
     border: none;
     height: 0;
   }
   .category__link {
-    font-size: 70%;
-    width: 6rem;
+    font-size: 60%;
+    width: 8rem;
   }
   .detail-container {
     flex-direction: column;
@@ -257,21 +257,6 @@
     gap: 1px;
   }
 }
-
-@media screen and (min-width: 960px) {
-  .item__container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20rem;
-    padding: 0.5rem;
-  }
-  .category__container {
-    align-self: flex-start;
-    flex-direction: column;
-    width: 30%;
-  }
-}
 @media screen and (min-width: 800px) and (max-width: 1200px) {
   .item__container {
     gap: 5rem;
@@ -279,5 +264,8 @@
   .detail-info {
     font-size: 1rem;
     width: 500px;
+  }
+  .category__link {
+    width: 10rem;
   }
 }

@@ -14,7 +14,12 @@ const ItemListContainer = () => {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    setItems(data.filter(dt => dt.category === catId))   
+    if(catId === "all"){
+      setItems(data) 
+    }
+    else {
+      setItems(data.filter(dt => dt.category === catId))  
+    }
   },[data, catId])
 
 

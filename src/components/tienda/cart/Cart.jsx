@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import {Link} from "react-router-dom"
 import { CartContext } from '../../../context/CartContext'
 
 const Cart = () => {
@@ -39,7 +40,7 @@ const Cart = () => {
       {
         totalCart ? 
 
-          <div>
+          <div className="total">
             <div>
               <h1>Total: ${totalCart}</h1>
             </div>
@@ -51,8 +52,14 @@ const Cart = () => {
             </div>
           </div>
         : 
-
-        <h1>El carrito esta vacio...</h1>
+        <>
+          <h1>El carrito esta vacio...</h1>
+          <Link to="/tienda/category/all">
+            <h2 style={{color:"#044371", textDecoration:"underline"}}>
+              Agrega algun producto en la tienda!
+            </h2>
+          </Link>
+        </>
       }
     </section>
   )

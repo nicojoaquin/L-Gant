@@ -7,7 +7,7 @@ const alert = () => {
   Swal.fire({
     title: 'Has agregado el producto al carrito!',
     background: "#fff",
-    padding: "4rem",
+    padding: "2rem",
     backdrop: false,
     position: "center",
     showConfirmButton: false,
@@ -55,10 +55,11 @@ const ItemCount = ({setBuy, product}) => {
       <br />
       <div className="add__cart">
         <button onClick={() => AddToCart()} className="add__cart--button">
-          { buyLoader && 
-            <img src={buySpinner} alt="loader" />
+          { buyLoader ?
+              <img src={buySpinner} alt="loader" />
+            :
+              "Agregar al carrito"
           }
-          Agregar al carrito
         </button>
       </div>
     </div>

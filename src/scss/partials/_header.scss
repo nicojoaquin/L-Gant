@@ -177,6 +177,9 @@
     padding: 15px;
     border-radius: 0.5rem;
   }
+  .store:hover .category-nav-open {
+    box-shadow: $boxShadow;
+  }
   .store:hover .arrow {
     transform: rotate(90deg) translateX(2px);
     transition: 0.3s;
