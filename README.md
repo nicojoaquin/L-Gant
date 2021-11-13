@@ -5,8 +5,10 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 ## Características
 
 - Navegación por rutas sin refresh
-- Consumo de API con Axios para renderizar los productos
+- Uso de Firebase Firestore para almacenar base de datos con la colección de mis productos
+- Llamada a la base de datos de Firestore para renderizar los productos
 - Filtrado por categorías
+- Busqueda de productos
 - Detalle del producto clickeado en una ruta aparte
 - Carrito de compras
 - Full responsive
@@ -22,7 +24,6 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 
 - React-Router
 - Infinite-React-Carousel
-- Axios
 - Firebase
 - Font Awesome
 - Sass

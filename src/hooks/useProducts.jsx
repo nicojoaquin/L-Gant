@@ -1,5 +1,6 @@
 import {useEffect, useState, useRef} from "react";
-import productsApi from "../data/productsApi";
+import { collection, onSnapshot } from '@firebase/firestore';
+import db from "../firebase-config"
 
 const useProducts = () => {
 
@@ -15,22 +16,15 @@ const useProducts = () => {
   },[])
 
   const getData = async () => {
-
-    //Creamos una promesa que carga los productos.   
-    const res = await productsApi.get();
-    const resp = await res.data;    
     
-    try {
-            setTimeout( () => {      
-              if(isMounted.current) {
-                setData(resp)  
-                setLoader(false)
-              }  
-            },700) 
-      }  
-      catch(err) {
-        console.warn(err);
-      }
+    setTimeout(() => {
+      
+      onSnapshot(collection(db, "products"), (snapshot) => {
+        const res = snapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
+        setData(res)
+        setLoader(false)
+      })
+    }, 700);
       
   }
       
