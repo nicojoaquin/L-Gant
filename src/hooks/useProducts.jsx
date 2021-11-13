@@ -7,15 +7,11 @@ const useProducts = () => {
   const [data, setData] = useState([])
   const [loader, setLoader] = useState(true)
 
-  useEffect(() => {
-
+  useEffect(() => {    
+    getData()
     return () => {
       isMounted.current = false
     }
-  },[])
-
-  useEffect(() => {    
-    getData()
   },[])
 
   const getData = async () => {

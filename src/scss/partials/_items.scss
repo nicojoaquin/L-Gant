@@ -142,6 +142,10 @@
   font-size: 1.2rem;
 }
 .add__cart--button {
+  display: flex;
+  width: 20rem;
+  justify-content: center;
+  gap: 1rem;
   border: 1px solid lawngreen;
   border-radius: 5px;
   box-shadow: $boxShadow;

@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { CartContext } from '../../../context/CartContext';
 import Swal from 'sweetalert2'
+import buySpinner from "../../../assets/loaders/buySpinner.gif"
 
 const alert = () => {
   Swal.fire({
@@ -21,11 +22,16 @@ const ItemCount = ({setBuy, product}) => {
 
   const { handleAdd } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
+  const [buyLoader, setBuyLoader] = useState(false)
 
   const AddToCart = () => {
-    setBuy(true)
-    alert()
-    handleAdd(product, quantity)
+    setBuyLoader(true)
+    setTimeout(() => {  
+      setBuyLoader(false) 
+      setBuy(true)
+      alert()
+      handleAdd(product, quantity)
+    }, 800);
   }
 
   const handleAddQuantiy = () => {
@@ -40,13 +46,20 @@ const ItemCount = ({setBuy, product}) => {
 
   return (
     <div>
-      <button onClick = {() => handleAddQuantiy()}>+</button>
-      <span>{quantity} </span>
-      <button onClick = {() => handleSubQuantiy()}>-</button>
+      <div className = "item-quantity">
+        <button onClick = {() => handleAddQuantiy()}>+</button>
+        <span style = {{marginRight: 10}}>{quantity} </span>
+        <button onClick = {() => handleSubQuantiy()}>-</button>
+      </div>
       <br />
       <br />
       <div className="add__cart">
-        <button onClick={() => AddToCart()} className="add__cart--button">Agregar al carrito</button>
+        <button onClick={() => AddToCart()} className="add__cart--button">
+          { buyLoader && 
+            <img src={buySpinner} alt="loader" />
+          }
+          Agregar al carrito
+        </button>
       </div>
     </div>
   )
