@@ -26,8 +26,7 @@ const CartContextProvider = ({children}) => {
 
   //Funcion que suma cantidad dentro del carrito.
   const handleAddMore = (product) => {  
-      setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...cartItem, quantity: cartItem.quantity + 1} : cartItem) )     
+    handleAdd(product, 1)     
   }
 
   //Función para restar el producto del carrito, si llega a 0 se elimina directamente.
@@ -36,7 +35,7 @@ const CartContextProvider = ({children}) => {
     const exist = cart.find( (cartItem) => cartItem.id === product.id )
 
     if(exist.quantity === 1) {
-      setCart(cart.filter( (cartItem) => cartItem.id !== product.id ))
+      handleRemove(product)
     } else {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
       {...cartItem, quantity: cartItem.quantity - 1} : cartItem) )
