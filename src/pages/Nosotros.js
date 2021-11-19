@@ -1,10 +1,13 @@
 import React from 'react'
+import { Fade } from 'react-awesome-reveal';
 
 const Nosotros = () => {
   return (
-    <section>
-      <h1>Nosotros</h1>
-    </section>
+    <Fade>
+      <section>
+        <h1>Nosotros</h1>
+      </section>
+    </Fade>
   )
 }
 

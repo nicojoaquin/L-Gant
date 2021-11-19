@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import { GetSearch } from './GetSearch'
 import Item from '../products/Item'
 import useProducts from '../../../hooks/useProducts'
+import { Fade } from 'react-awesome-reveal';
 
 const Search = () => {
 
@@ -18,23 +19,25 @@ const Search = () => {
 
   return (
 
-    <section className = "container">
-      { 
-        loader ?
-          <svg 
-            className = "cssload-spin-box loader"
-            style = {{marginTop: 400}}>
-          </svg>
-        :
-          <div className = "item-list">
-            {
-              itemsFiltered.map(item => 
-                <Item key = {item.id} product = {item} />
-              )
-            }
-          </div>
-      }
-    </section>
+    <Fade>
+      <section className = "container">
+        { 
+          loader ?
+            <svg 
+              className = "cssload-spin-box loader"
+              style = {{marginTop: 400}}>
+            </svg>
+          :
+            <div className = "item-list">
+              {
+                itemsFiltered.map(item => 
+                  <Item key = {item.id} product = {item} />
+                )
+              }
+            </div>
+        }
+      </section>
+    </Fade>
     
   )
 }
