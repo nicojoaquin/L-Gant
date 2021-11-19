@@ -8,10 +8,9 @@ const alert = () => {
     title: 'Has agregado el producto al carrito!',
     background: "#fff",
     padding: "2rem",
-    backdrop: false,
     position: "center",
     showConfirmButton: false,
-    timer: 1300,
+    timer: 1200,
     customClass: {
       title: "alert-title"
     }

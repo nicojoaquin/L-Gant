@@ -12,6 +12,7 @@ const Header = ({title}) => {
 
   const handleNav = () => {
     setNav(!nav)
+    setCatOpen(false)
   }
 
   const closeAll = () => {
