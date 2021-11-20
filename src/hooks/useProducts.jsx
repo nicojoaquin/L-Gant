@@ -8,27 +8,32 @@ const useProducts = () => {
   const [data, setData] = useState([])
   const [loader, setLoader] = useState(true)
 
-  useEffect(() => {    
-    getData()
+  useEffect(() => {   
+
+      getData()     
+
     return () => {
       isMounted.current = false
     }
   },[])
 
   const getData = async () => {
-    
-    const querySnapshot = await getDocs(collection(db, "products"));
-    const res = querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id}))
 
-    setTimeout(() => {
+    try { 
+      
+      const querySnapshot = await getDocs(collection(db, "products"));
+      const res = querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id}))  
+
       if(isMounted.current) {
         setData(res)
-        setLoader(false)
-        }
-      }, 700);
-      
-    
-    
+      }
+
+    } catch (err) {
+      console.warn(err);
+    } finally {
+      setLoader(false)
+    }
+
   }
       
     return {data, loader};

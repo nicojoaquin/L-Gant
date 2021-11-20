@@ -1,0 +1,22 @@
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 6rem;
+}
+
+.checkout-button {
+  background-color: lawngreen;
+  border: lawngreen;
+  box-shadow: $boxShadow;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: lighten($color: lawngreen, $amount: 10);
+    transition: 0.3s ease;
+  }
+}

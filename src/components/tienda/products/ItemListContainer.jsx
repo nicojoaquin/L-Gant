@@ -3,9 +3,6 @@ import { useParams } from 'react-router';
 import useProducts from '../../../hooks/useProducts';
 import Category from './Category';
 import ItemList from "./Itemlist"
-// import { collection, onSnapshot } from '@firebase/firestore';
-// import db from "../../../firebase-config"
-
 
 const ItemListContainer = () => {
 
