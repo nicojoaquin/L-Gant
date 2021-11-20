@@ -9,6 +9,7 @@ import Cart from "./components/tienda/cart/Cart";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
 import Search from "./components/tienda/search/Search";
+import Checkout from "./components/tienda/cart/Checkout";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route exact path = "/tienda/category/:catId" component={ Tienda } />
           <Route exact path = "/tienda/:productId" component={ ItemDetailContainer } />
           <Route exact path = "/cart" component={ Cart } />
+          <Route exact path = "/checkout" component={ Checkout } />
           <Route exact path = "/nosotros" component={ Nosotros } />
           <Route exact path = "/contacto" component={ Contacto } />
           <Route exact path = "/search" component={ Search } />

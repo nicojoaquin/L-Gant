@@ -10,7 +10,7 @@ const Item = ({product}) => (
       <div
         className = "item" 
         style = {{
-          backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
+          backgroundImage: `url(${product.img})`
         }}>
 
         <div className= "item__info">

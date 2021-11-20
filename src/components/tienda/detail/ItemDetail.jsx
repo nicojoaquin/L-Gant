@@ -22,7 +22,7 @@ const ItemDetail = ({product}) => {
         className = "item-img" 
         onClick= { () => console.log(product) }
         style = {{
-          backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
+          backgroundImage: `url(${product.img})`
         }}>
       </div>
 

@@ -4,6 +4,7 @@ import CartWidget from './CartWidget';
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import NavButton from "./NavButton";
+import logo from "../../assets/logo/logo.ico" 
 
 const Header = ({title}) => {
 
@@ -26,7 +27,7 @@ const Header = ({title}) => {
 
         <div className = "title">
           <Link to="/"><h1 className = "title__h1" onClick={() => closeAll()}> {title} </h1></Link>
-          <img src= {process.env.PUBLIC_URL + "/assets/logo.ico"} alt= "logo"/>
+          <img src= {logo} alt= "logo"/>
         </div>
               
         <div className= "header__assets">

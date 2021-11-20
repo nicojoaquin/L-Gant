@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import { CartContext } from '../../../context/CartContext'
 import { Fade } from 'react-awesome-reveal';
 
 const Cart = () => {
 
   const {cart, totalCart, handleAddMore, handleSub, handleRemove, handleClear } = useContext(CartContext)
-
+  const history = useHistory()
+  
   return (
 
     <Fade>
@@ -17,7 +18,7 @@ const Cart = () => {
           cart.map( item => 
             <div className="cart__item" key = {item.id}>
               <div className = "cart__item--container">  
-                <img className = "cart-img" src = {process.env.PUBLIC_URL + item.img} alt = {item.name} />
+                <img className = "cart-img" src = {item.img} alt = {item.name} />
                 <h2>{item.name}</h2>
                 <h3>${item.price}</h3>
 
@@ -52,6 +53,7 @@ const Cart = () => {
               
               <div className="add__cart">
                 <button onClick={() => handleClear()} >Vaciar carrito</button>
+                <button onClick={() => history.push("/checkout")}>Ir al checkout</button>
               </div>
             </div>
           : 
