@@ -19,25 +19,34 @@ const Checkout = () => {
     phone: ""
   })
 
-  const {name, email1, phone} = formValues
-
-  const userInfo = {
-    name,
-    email: email1,
-    phone
-  }
+  const {name, email1, phone} = formValues;
 
   const handleCheckout = async (e) => {
+    
     e.preventDefault()
-    const docRef = await addDoc(collection(db, "orders"), {
-      buyer: userInfo,
-      items: cart,
-      total: totalCart
-    });
-    setOrderId(docRef.id);
-    reset()
-    handleClear()
-    sessionStorage.clear("cart")
+
+    try {
+      const docRef = await addDoc(collection(db, "orders"), {
+        buyer: {
+          name,
+          email: email1,
+          phone
+        },
+        items: cart,
+        total: totalCart
+      });
+      setOrderId(docRef.id);
+      
+    } catch (err) {
+      console.warn(err);
+
+    } finally {
+      console.log(orderId);
+      reset()
+      handleClear()
+      sessionStorage.clear("cart")
+    }
+
   }
   
   
@@ -46,13 +55,7 @@ const Checkout = () => {
     cart.length !== 0  ? (
 
       <section className = "checkout-container">
-
-        {
-          cart.map( (item) => ( 
-            <CheckoutItems key = {item.id} {...item} handleCheckout = {handleCheckout} formValues = {formValues} handleInputChange={handleInputChange} />
-          ))
-        }
-
+        <CheckoutItems cart = {cart} handleCheckout = {handleCheckout} formValues = {formValues} handleInputChange={handleInputChange} />    
       </section>
 
     )

@@ -10,7 +10,7 @@ const alert = () => {
     padding: "2rem",
     position: "center",
     showConfirmButton: false,
-    timer: 1200,
+    timer: 800,
     customClass: {
       title: "alert-title"
     }

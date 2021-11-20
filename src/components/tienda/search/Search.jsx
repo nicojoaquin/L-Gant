@@ -28,7 +28,7 @@ const Search = () => {
               style = {{marginTop: 400}}>
             </svg>
           :
-            <div className = "item-list">
+            <div className = "item-list" style={{marginTop : 120}}>
               {
                 itemsFiltered.map(item => 
                   <Item key = {item.id} product = {item} />

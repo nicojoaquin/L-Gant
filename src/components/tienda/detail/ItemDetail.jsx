@@ -62,6 +62,11 @@ const ItemDetail = ({product}) => {
               <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
             </div> 
         }
+
+        <div>
+          <button onClick={history.goBack}>Volver</button>
+        </div>
+
       </div>    
     </Fade>    
     
