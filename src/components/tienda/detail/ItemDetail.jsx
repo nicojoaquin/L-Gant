@@ -43,27 +43,30 @@ const ItemDetail = ({product}) => {
         </div>
 
         <hr />
+        
+        { !buy &&
+          <div className="item-talles">
+            <h3>Selecciona un talle</h3>
+            <br />
+            <select className="select" name="talle" required>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+            </select>
+          </div>
+        }
 
-        <div className="item-talles">
-          <h3>Selecciona un talle</h3>
-          <br />
-          <select className="select" name="talle" required>
-            <option value="s">S</option>
-            <option value="m">M</option>
-            <option value="l">L</option>
-          </select>
-        </div>
        <div style = {{display: "flex", width: 1}}>
           {
             !buy ?  
             <ItemCount setBuy = {setBuy} product = {product} />
             :
             <div className="add__cart">
-                <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
+                <button onClick={goToCart} className="add__cart--button continue-button">Continuar con la compra</button>       
               </div> 
           }
 
-          <div>
+          <div style = {{position: "relative"}}>
             <button className = "return-button" onClick={history.goBack}>Volver</button>
           </div>
         </div>   

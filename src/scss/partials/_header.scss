@@ -8,7 +8,6 @@
   left: 0;
   width: 100%;
   height: 5rem;
-  box-shadow: $boxShadow;
   z-index: 1000;
 }
 .title {
@@ -46,6 +45,7 @@
 .links {
   text-decoration: none;
   color: $colorSecundario;
+  transition: 0.3 ease;
 }
 .bars {
   cursor: pointer;
@@ -124,6 +124,7 @@
   }
   .category__link-nav {
     color: $colorSecundario;
+    transition: 0.3 ease;
   }
   .category-nav-open {
     background-color: rgb(218, 211, 211);
@@ -140,13 +141,11 @@
     transform: rotate(90deg) translateX(2px);
     transition: 0.3s;
   }
-  // .finder input {
-  //   width: 100px;
-  // }
 }
 @media screen and (min-width: 1090px) {
   .links:hover {
     text-decoration: underline;
+    transition: 0.3 ease;
   }
   .category__link-nav {
     display: none;
@@ -154,6 +153,7 @@
   }
   .category__link-nav:hover {
     text-decoration: underline;
+    transition: 0.3 ease;
   }
   .store:hover .category__link-nav {
     display: block;

@@ -12,6 +12,8 @@ const Checkout = () => {
 
   const [orderId, setOrderId] = useState("")
 
+  const [buyLoader, setBuyLoader] = useState(false)
+
   const [formValues, handleInputChange, reset] = useForm({
     name: "",
     email1: "",
@@ -24,6 +26,7 @@ const Checkout = () => {
   const handleCheckout = async (e) => {
     
     e.preventDefault()
+    setBuyLoader(true)
 
     try {
       const docRef = await addDoc(collection(db, "orders"), {
@@ -41,6 +44,7 @@ const Checkout = () => {
       console.warn(err);
 
     } finally {
+      setBuyLoader(false)
       console.log(orderId);
       reset()
       handleClear()
@@ -55,7 +59,12 @@ const Checkout = () => {
     cart.length !== 0  ? (
 
       <section className = "checkout-container">
-        <CheckoutItems cart = {cart} handleCheckout = {handleCheckout} formValues = {formValues} handleInputChange={handleInputChange} />    
+        <CheckoutItems 
+          cart = {cart} 
+          handleCheckout = {handleCheckout} 
+          formValues = {formValues} 
+          handleInputChange={handleInputChange} 
+          buyLoader = {buyLoader} />    
       </section>
 
     )

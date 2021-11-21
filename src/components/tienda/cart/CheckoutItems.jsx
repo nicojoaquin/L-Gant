@@ -1,6 +1,8 @@
 import React from 'react'
+import buySpinner from "./../../../assets/loaders/buySpinner.gif"
 
-const CheckoutItems = ({cart, handleCheckout, formValues, handleInputChange}) => {
+const CheckoutItems = ({cart, handleCheckout, formValues, handleInputChange, buyLoader}) => {
+
   return (
 
     <>
@@ -64,7 +66,13 @@ const CheckoutItems = ({cart, handleCheckout, formValues, handleInputChange}) =>
           <br /> 
 
           <div className = "checkout__button--container">
-            <button type = "submit" className = "checkout-button">Comprar</button>      
+            <button type = "submit" className = "checkout-button buy-button">
+            { buyLoader ?
+              <img src={buySpinner} alt="loader" />
+            :
+              "Comprar"
+          }
+            </button>     
           </div>
 
         </form>

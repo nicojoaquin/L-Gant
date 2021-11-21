@@ -157,6 +157,10 @@
 .add__cart--button:hover {
   background-color: rgba(127, 250, 4, 0.5);
 }
+.continue-button {
+  position: relative;
+  top: 100px;
+}
 .cart-button {
   border-radius: 7px;
   width: 2.3rem;
@@ -171,6 +175,8 @@
   }
 }
 .return-button {
+  position: absolute;
+  right: 12px;
   border-radius: 5px;
   background-color: $colorSecundario;
   color: $colorPrincipal;
@@ -196,14 +202,15 @@
   font-size: 15px;
   gap: 1rem;
   text-align: center;
-}
-.cart__item {
-  background-color: $colorPrincipal;
-  box-shadow: $boxShadow;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.cart-table {
+  width: 100vw;
+}
+.cart__item {
+  box-shadow: $boxShadow;
 }
 .cart__item--container {
   width: 50%;
@@ -300,12 +307,24 @@
     display: flex;
     flex-direction: column;
   }
+  .cart-table {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+  }
+  .cart-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.1rem;
+  }
   .cart-img {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 60px;
   }
   .item-quantity {
     gap: 1px;
+  }
+  .final-buttons {
+    font-size: 90%;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1200px) {
