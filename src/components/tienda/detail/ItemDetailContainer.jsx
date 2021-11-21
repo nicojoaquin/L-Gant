@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
   const {productId} = useParams()
   const isMounted = useRef(true)
   const {data, loader} = useProducts()
-  const [item,  setItem]  = useState([])
+  const [item,  setItem]  = useState({})
 
   useEffect(() => {
 
@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
     }
   },[data, productId])
 
-  
   return (
 
     <div className="detail-container">
@@ -34,6 +33,8 @@ const ItemDetailContainer = () => {
         style = {{marginTop: 400}}>
         </svg> :
         
+        !item ? <h2>No se encuentra el producto</h2> 
+        :
         <ItemDetail product={item} />   
       }
     </div>

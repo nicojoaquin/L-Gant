@@ -38,7 +38,11 @@ const ItemListContainer = () => {
           <hr />
           <div className = "item__container">  
             <Category />
-            <ItemList products = {items} />           
+            {
+              items.length === 0 ? <h2>No se encuentra la categoría</h2>
+              :
+              <ItemList products = {items} />           
+            }
           </div>
         </div>  
       }

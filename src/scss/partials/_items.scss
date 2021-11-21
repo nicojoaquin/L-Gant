@@ -36,7 +36,7 @@
 .item-list {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
 }
 .item {
@@ -157,6 +157,41 @@
 .add__cart--button:hover {
   background-color: rgba(127, 250, 4, 0.5);
 }
+.cart-button {
+  border-radius: 7px;
+  width: 2.3rem;
+  background-color: $colorSecundario;
+  color: $colorPrincipal;
+  border: none;
+  box-shadow: $boxShadow;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: darken($color: $colorSecundario, $amount: 7);
+    transition: 0.3s ease;
+  }
+}
+.return-button {
+  border-radius: 5px;
+  background-color: $colorSecundario;
+  color: $colorPrincipal;
+  border: none;
+  box-shadow: $boxShadow;
+  transition: 0.3s ease;
+  &:hover {
+    background-color: darken($color: $colorSecundario, $amount: 7);
+    transition: 0.3s ease;
+  }
+}
+.delete-button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+  color: red;
+  &:hover {
+    color: darken($color: red, $amount: 10);
+    transition: 0.3s ease;
+  }
+}
 .cart__container {
   font-size: 15px;
   gap: 1rem;
@@ -186,6 +221,21 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.final-buttons {
+  border-radius: 5px;
+  border: none;
+  box-shadow: $boxShadow;
+  transition: 0.3s ease;
+  color: $colorSecundario;
+  font-weight: 500;
+}
+.clear-button {
+  background-color: red;
+  &:hover {
+    background-color: darken($color: red, $amount: 10);
+    transition: 0.3s ease;
+  }
 }
 
 @media screen and (max-width: 1002px) {
@@ -266,9 +316,6 @@
     width: 250px;
     height: 300px;
   }
-  .item-list {
-    gap: 7rem;
-  }
   .item__info {
     bottom: -18%;
   }
@@ -278,5 +325,11 @@
   }
   .category__link {
     width: 10rem;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1595px) {
+  .item-list {
+    gap: 7rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

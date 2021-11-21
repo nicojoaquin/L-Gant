@@ -46,9 +46,9 @@ const ItemCount = ({setBuy, product}) => {
   return (
     <div>
       <div className = "item-quantity">
-        <button onClick = {() => handleAddQuantiy()}>+</button>
+        <button className = "cart-button" onClick = {() => handleAddQuantiy()}>+</button>
         <span style = {{marginRight: 10}}>{quantity} </span>
-        <button onClick = {() => handleSubQuantiy()}>-</button>
+        <button className = "cart-button" onClick = {() => handleSubQuantiy()}>-</button>
       </div>
       <br />
       <br />

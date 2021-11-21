@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Redirect } from 'react-router-dom'
 import queryString from 'query-string'
 import { GetSearch } from './GetSearch'
 import Item from '../products/Item'
@@ -24,17 +24,28 @@ const Search = () => {
         { 
           loader ?
             <svg 
-              className = "cssload-spin-box loader"
-              style = {{marginTop: 400}}>
-            </svg>
-          :
-            <div className = "item-list" style={{marginTop : 120}}>
-              {
-                itemsFiltered.map(item => 
-                  <Item key = {item.id} product = {item} />
-                )
-              }
-            </div>
+            className = "cssload-spin-box loader"
+            style = {{marginTop: 400}}>
+              </svg>
+          :   
+            itemsFiltered.length === 0 ?
+              <h2 style = {{marginTop: 100}}>No hay resultados</h2>
+            :
+              <>
+                <div>
+                  <h2 style = {{marginTop: 100}}>Resultados</h2>
+                  <hr/>
+                </div>
+
+                <div className = "item-list" style={{marginTop : 120}}>
+                  {
+                    itemsFiltered.map(item => 
+                      <Item key = {item.id} product = {item} />
+                    )
+                  }
+                </div>
+              </>
+
         }
       </section>
     </Fade>

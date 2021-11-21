@@ -22,7 +22,7 @@ const ItemDetail = ({product}) => {
         className = "item-img" 
         onClick= { () => console.log(product) }
         style = {{
-          backgroundImage: `url(${product.img})`
+          backgroundImage: `url(${process.env.PUBLIC_URL + product.img})`
         }}>
       </div>
 
@@ -53,19 +53,20 @@ const ItemDetail = ({product}) => {
             <option value="l">L</option>
           </select>
         </div>
-          
-        {
-          !buy ?  
+       <div style = {{display: "flex", width: 1}}>
+          {
+            !buy ?  
             <ItemCount setBuy = {setBuy} product = {product} />
-          :
+            :
             <div className="add__cart">
-              <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
-            </div> 
-        }
+                <button onClick={goToCart} className="add__cart--button">Continuar con la compra</button>       
+              </div> 
+          }
 
-        <div>
-          <button onClick={history.goBack}>Volver</button>
-        </div>
+          <div>
+            <button className = "return-button" onClick={history.goBack}>Volver</button>
+          </div>
+        </div>   
 
       </div>    
     </Fade>    
