@@ -14,6 +14,7 @@ const Cart = () => {
     handleRemove,
     handleClear,
   } = useContext(CartContext);
+
   const history = useHistory();
 
   return (
@@ -31,12 +32,15 @@ const Cart = () => {
                     alt={item.name}
                   />
                 </td>
+
                 <td>
                   <h3>{item.name}</h3>
                 </td>
+
                 <td>
                   <h3>${item.price}</h3>
                 </td>
+
                 <td>
                   <div className="item-quantity">
                     <div>
@@ -47,7 +51,9 @@ const Cart = () => {
                         +
                       </button>
                     </div>
+
                     <span style={{ marginRight: 10 }}>{item.quantity}</span>
+
                     <div>
                       <button
                         className="cart-button"
@@ -58,9 +64,11 @@ const Cart = () => {
                     </div>
                   </div>
                 </td>
+
                 <td>
-                  <h4>Subtotal: ${item.price * item.quantity}</h4>
+                  <h4>Subtotal: ${item.subTotal}</h4>
                 </td>
+
                 <td>
                   <span onClick={() => handleRemove(item)}>
                     <FontAwesomeIcon

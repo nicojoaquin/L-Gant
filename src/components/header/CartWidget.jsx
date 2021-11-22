@@ -10,7 +10,7 @@ const CartWidget = ({ closeAll }) => {
   return (
     <div className="cart-widget">
       <Link to="/cart" style={{ color: "black" }} onClick={closeAll}>
-        <FontAwesomeIcon icon={faDollyFlatbed} />
+        <FontAwesomeIcon icon={faDollyFlatbed} className="cart-icon" />
         {totalItems > 0 && <span> {totalItems}</span>}
       </Link>
     </div>

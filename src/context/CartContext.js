@@ -9,6 +9,8 @@ const CartContextProvider = ({children}) => {
 
   const [cart, setCart] = useState(!cartStorage ? [] : cartStorage )
 
+  const [orderId, setOrderId] = useState("");
+
   useEffect(() => {
     sessionStorage.setItem("cart", JSON.stringify(cart))
   },[cart])
@@ -20,9 +22,9 @@ const CartContextProvider = ({children}) => {
     
     if(exist) {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...cartItem, quantity: cartItem.quantity + quantitySetted} : cartItem) )
+      {...cartItem, quantity: cartItem.quantity + quantitySetted, subTotal: cartItem.subTotal + (cartItem.price * quantitySetted)} : cartItem) )
     } else {
-      setCart([...cart, {...product, quantity: quantitySetted}])
+      setCart([...cart, {...product, quantity: quantitySetted, subTotal: product.price * quantitySetted}])
     }
   }
   
@@ -40,7 +42,7 @@ const CartContextProvider = ({children}) => {
       handleRemove(product)
     } else {
       setCart(cart.map( (cartItem) => cartItem.id === product.id ? 
-      {...cartItem, quantity: cartItem.quantity - 1} : cartItem) )
+      {...cartItem, quantity: cartItem.quantity - 1, subTotal: cartItem.subTotal - cartItem.price} : cartItem) )
     }
     
   }
@@ -56,7 +58,7 @@ const CartContextProvider = ({children}) => {
   }
   
   //Calculamos el total de todos los productos del carrito.
-  const totalCart = cart.reduce( (price, cartItem) => price + cartItem.quantity * cartItem.price, 0 )
+  const totalCart = cart.reduce( (price, cartItem) => price + cartItem.subTotal, 0 )
   //Sumamos las cantidades para el contador del CartWidget.
   const totalItems = cart.reduce( (quantity, cartItem) => quantity + cartItem.quantity, 0 )
   
@@ -70,7 +72,9 @@ const CartContextProvider = ({children}) => {
       handleRemove,
       handleClear,
       totalCart,
-      totalItems
+      totalItems,
+      orderId,
+      setOrderId
     }}>
       {children}
     </CartContext.Provider>
