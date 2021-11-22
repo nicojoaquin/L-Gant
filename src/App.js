@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Redirect, HashRouter as Router } from "react-router-dom";
+import { Route, Switch, Redirect, BrowserRouter as Router } from "react-router-dom";
 import CartContextProvider from "./context/CartContext";
 import Header from "./components/header/Header";
 import Inicio from "./pages/Inicio";
