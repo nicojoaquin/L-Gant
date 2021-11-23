@@ -112,7 +112,7 @@ const Cart = () => {
             <h1>El carrito esta vacio...</h1>
             <Link to="/tienda/category/all">
               <h2 style={{ color: "#044371", textDecoration: "underline" }}>
-                Agrega algun producto en la tienda!
+                Agrega algún producto en la tienda!
               </h2>
             </Link>
           </>

@@ -5,6 +5,7 @@ import { GetSearch } from "./GetSearch";
 import Item from "../products/Item";
 import useProducts from "../../../hooks/useProducts";
 import { Fade } from "react-awesome-reveal";
+import ProductsLoader from "../../loaders/ProductsLoader";
 
 const Search = () => {
   // Extraemos el query de el location (el valor que le dimos al input de búsqueda).
@@ -20,10 +21,7 @@ const Search = () => {
     <Fade>
       <section className="container">
         {loader ? (
-          <svg
-            className="cssload-spin-box loader"
-            style={{ marginTop: 400 }}
-          ></svg>
+          <ProductsLoader />
         ) : itemsFiltered.length === 0 ? (
           <h2 style={{ marginTop: 100 }}>No hay resultados</h2>
         ) : (
