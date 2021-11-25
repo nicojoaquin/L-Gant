@@ -4,36 +4,32 @@ import { collection, addDoc } from "@firebase/firestore";
 import db from "../../../config/firebase-config";
 import { Redirect } from "react-router";
 import CheckoutItems from "./CheckoutItems";
-import { useForm } from "../../../hooks/useForm";
 import { Fade } from "react-awesome-reveal";
+import BuyMessage from "./BuyMessage";
 
 const Checkout = () => {
-  const { cart, totalCart, handleClear } = useContext(CartContext);
-
-  const { orderId, setOrderId } = useContext(CartContext);
+  const { cart, totalCart, handleClear, orderId, setOrderId } =
+    useContext(CartContext);
 
   const [buyLoader, setBuyLoader] = useState(false);
 
-  const [formValues, handleInputChange, reset] = useForm({
-    name: "",
-    email1: "",
-    email2: "",
-    phone: "",
-  });
+  const [emailMatchError, setEmailMatchError] = useState(false);
 
-  const { name, email1, phone } = formValues;
+  const [buyed, setBuyed] = useState(false);
 
-  const handleCheckout = async (e) => {
+  const [buyerInfo, setBuyerInfo] = useState({});
+
+  const handleCheckout = async (data, e) => {
     e.preventDefault();
+    if (data.email1 !== data.email2) {
+      setEmailMatchError(true);
+      return;
+    }
     setBuyLoader(true);
 
     try {
       const docRef = await addDoc(collection(db, "orders"), {
-        buyer: {
-          name,
-          email: email1,
-          phone,
-        },
+        buyer: data,
         items: cart,
         total: totalCart,
       });
@@ -42,21 +38,28 @@ const Checkout = () => {
       console.warn(err);
     } finally {
       setBuyLoader(false);
-      console.log(orderId);
-      reset();
+      setBuyerInfo(data);
+      setBuyed(true);
       handleClear();
     }
   };
+
+  if (buyed) {
+    return (
+      <Fade>
+        <BuyMessage buyerInfo={buyerInfo} orderId={orderId} />
+      </Fade>
+    );
+  }
 
   return cart.length !== 0 ? (
     <Fade>
       <section className="checkout-container">
         <CheckoutItems
-          cart={cart}
+          totalCart={totalCart}
           handleCheckout={handleCheckout}
-          formValues={formValues}
-          handleInputChange={handleInputChange}
           buyLoader={buyLoader}
+          emailMatchError={emailMatchError}
         />
       </section>
     </Fade>

@@ -11,7 +11,7 @@ const CartWidget = ({ closeAll }) => {
     <div className="cart-widget">
       <Link to="/cart" style={{ color: "black" }} onClick={closeAll}>
         <FontAwesomeIcon icon={faDollyFlatbed} className="cart-icon" />
-        {totalItems > 0 && <span> {totalItems}</span>}
+        {totalItems > 0 && <span className="widget-span"> {totalItems}</span>}
       </Link>
     </div>
   );

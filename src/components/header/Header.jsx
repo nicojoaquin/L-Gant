@@ -23,6 +23,7 @@ const Header = ({ title }) => {
   return (
     <>
       <header className="header">
+        <NavButton nav={nav} handleNav={handleNav} />
         <div className="title">
           <Link to="/">
             <h1 className="title__h1" onClick={() => closeAll()}>
@@ -42,7 +43,6 @@ const Header = ({ title }) => {
             closeAll={closeAll}
           />
           <CartWidget closeAll={closeAll} />
-          <NavButton nav={nav} handleNav={handleNav} />
         </div>
       </header>
     </>

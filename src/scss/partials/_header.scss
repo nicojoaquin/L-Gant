@@ -29,12 +29,6 @@
   width: 70px;
   height: 70px;
 }
-.header__assets {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin: 3rem;
-}
 .nav {
   display: flex;
   gap: 30px;
@@ -89,12 +83,15 @@
   }
 }
 @media screen and (max-width: 1090px) {
+  .header {
+    justify-content: space-evenly;
+  }
   .title {
     margin: 2rem;
   }
   .title__h1 {
     width: 80px;
-    font-size: 20px;
+    font-size: 23px;
     z-index: 1000;
   }
   .title img {
@@ -157,6 +154,12 @@
   }
 }
 @media screen and (min-width: 1090px) {
+  .header__assets {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem;
+  }
   .links:hover {
     color: rgb(110, 108, 108);
     transition: 0.3s;

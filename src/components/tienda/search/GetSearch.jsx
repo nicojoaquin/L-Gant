@@ -1,16 +1,14 @@
-import useProducts from '../../../hooks/useProducts'
-
+import useProducts from "../../../hooks/useProducts";
 
 export const GetSearch = (query) => {
+  const { data } = useProducts();
 
-  const {data} = useProducts()
-
-  if ( query === "") {
+  if (query === "") {
     return [];
   }
 
   // Filtramos los productos para que coincidan con el query escrito en el input.
-  
-  return data.filter( item => item.name.toLowerCase().includes(query.toLowerCase()) );
-
-} 
+  return data.filter((item) =>
+    item.name.toLowerCase().includes(query.trim().toLowerCase())
+  );
+};
