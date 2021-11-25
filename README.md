@@ -2,7 +2,7 @@
 
 Proyecto final E-commerce de indumentaria masculina para el curso de React en Coder House.
 
-[Link a la app](l-gant.vercel.app)
+[Link a la app](https://l-gant.vercel.app/)
 
 ## Características
 
