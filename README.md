@@ -11,12 +11,15 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - Busqueda de productos
 - Detalle del producto clickeado en una ruta aparte
 - Carrito de compras
+- Posteo de orden de compra en base de datos de Firebase
+- Validaciones de búsqueda, rutas, renderizado y formulario
 - Full responsive
 
 ## Tecnologías utilizadas
 
 - React JS
 - React hooks
+- React-Router
 - Sass
 - Firebase para base de datos
 
@@ -28,3 +31,6 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - Font Awesome
 - Sass
 - React Awesome Reveal
+- query-string
+- react-hook-form
+- sass
