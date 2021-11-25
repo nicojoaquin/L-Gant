@@ -24,7 +24,7 @@ const ItemListContainer = () => {
       {loader ? (
         <ProductsLoader />
       ) : (
-        <div>
+        <div className="store-container">
           <h2 className="products-title">Productos</h2>
           <br />
           <hr />

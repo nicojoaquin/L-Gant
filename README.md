@@ -34,3 +34,5 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - query-string
 - react-hook-form
 - sass
+
+## Demostración
