@@ -2,6 +2,8 @@
 
 Proyecto final E-commerce de indumentaria masculina para el curso de React en Coder House.
 
+l-gant.vercel.app
+
 ## Características
 
 - Navegación por rutas sin refresh
@@ -35,4 +37,6 @@ Proyecto final E-commerce de indumentaria masculina para el curso de React en Co
 - react-hook-form
 - sass
 
-## Demostración
+## Demostración de compra
+
+![L-Gant - Tienda online - Google Chrome 2021-11-25 20-12-44 (1)](https://user-images.githubusercontent.com/84636377/143506955-48b4a81f-131a-4777-995d-7369abea44f8.gif)
