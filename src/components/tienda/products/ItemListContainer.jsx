@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import React from "react";
 import useProducts from "../../../hooks/useProducts";
 import ProductsLoader from "../../loaders/ProductsLoader";
 import Category from "./Category";
 import ItemList from "./Itemlist";
 
 const ItemListContainer = () => {
-  const { catId } = useParams();
-  const { data, loader } = useProducts();
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    if (catId === "all") {
-      setItems(data);
-    } else {
-      setItems(data.filter((dt) => dt.category === catId));
-    }
-  }, [data, catId]);
+  const { items, loader } = useProducts();
 
   return (
     /*Cuando termina de cargar, aparecen los productos.*/

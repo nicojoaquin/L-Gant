@@ -1,19 +1,36 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { collection, getDocs } from "@firebase/firestore";
 import db from "../config/firebase-config";
 
 const useProducts = () => {
-  const isMounted = useRef(true);
+  const { catId } = useParams();
+
+  const { productId } = useParams();
+
   const [data, setData] = useState([]);
+
+  const [items, setItems] = useState([]);
+
+  const [item, setItem] = useState({});
+
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     getData();
-
-    return () => {
-      isMounted.current = false;
-    };
   }, []);
+
+  useEffect(() => {
+    if (catId === "all") {
+      setItems(data);
+    } else {
+      setItems(data.filter((dt) => dt.category === catId));
+    }
+  }, [data, catId]);
+
+  useEffect(() => {
+    setItem(data.find((dt) => dt.id === productId));
+  }, [data, productId]);
 
   const getData = async () => {
     setLoader(true);
@@ -24,10 +41,7 @@ const useProducts = () => {
         ...doc.data(),
         id: doc.id,
       }));
-
-      if (isMounted.current) {
-        setData(res);
-      }
+      setData(res);
     } catch (err) {
       console.warn(err);
     } finally {
@@ -35,7 +49,7 @@ const useProducts = () => {
     }
   };
 
-  return { data, loader };
+  return { data, items, item, loader };
 };
 
 export default useProducts;
