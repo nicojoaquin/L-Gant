@@ -4,9 +4,7 @@ import { collection, getDocs } from "@firebase/firestore";
 import db from "../config/firebase-config";
 
 const useProducts = () => {
-  const { catId } = useParams();
-
-  const { productId } = useParams();
+  const { catId, productId } = useParams();
 
   const [data, setData] = useState([]);
 
@@ -16,10 +14,12 @@ const useProducts = () => {
 
   const [loader, setLoader] = useState(false);
 
+  //Llamamos inicialmente la data.
   useEffect(() => {
     getData();
   }, []);
 
+  //Si elegimos la categoría "all" muestra todos, y si no los filtra depende la elegida.
   useEffect(() => {
     if (catId === "all") {
       setItems(data);
@@ -28,6 +28,7 @@ const useProducts = () => {
     }
   }, [data, catId]);
 
+  //LLama al item que pulsamos para ver su propia página/ruta.
   useEffect(() => {
     setItem(data.find((dt) => dt.id === productId));
   }, [data, productId]);

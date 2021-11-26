@@ -5,7 +5,7 @@ import { Fade } from 'react-awesome-reveal';
 const Inicio = () => {
   return (
     <Fade>
-      <main>
+      <main style ={{display: "flex", flexDirection: "column", alignItems: "center"}}>
         <HomeContainer />
       </main>
     </Fade>
